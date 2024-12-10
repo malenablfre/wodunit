@@ -6,4 +6,20 @@ class login(UserControl):
         self.page = page
 
     def build(self):
-        pass
+        return Column(
+            controls=[
+                Container(
+                    height=800,
+                    width=350,
+                    bgcolor="blue",
+                    content=Column(
+                        controls=[
+                            Text('Welcome to the login'),
+                            Container(
+                                content=TextButton("Go to Homepage", on_click=lambda _: self.page.go("/"))
+                            )
+                        ]
+                    )
+                )
+            ]
+        )

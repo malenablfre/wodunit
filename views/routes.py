@@ -1,6 +1,6 @@
 from flet import *
-from home_view import home
-from login_view import login
+from views.home_view import home
+from views.login_view import login
 
 
 def views_handler(page):
