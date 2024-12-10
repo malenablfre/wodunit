@@ -2,6 +2,7 @@ from flet import *
 from home_view import home
 from login_view import login
 
+
 def views_handler(page):
     return {
         '/':View(
