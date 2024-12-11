@@ -10,8 +10,17 @@ class home(ft.UserControl):
                 ft.Column(
                 spacing=0,
                 controls=[
-                    ft.Text(value="Whodunit?", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
-                    ft.Text(value="Das Spiel des Mörders", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                    ft.Container(
+                        content=ft.Text(value="Whodunit?", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Das Spiel des Mörders", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
 
                     ft.Container(
                         content=ft.Text(value="Aktive Spiele", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
@@ -53,7 +62,12 @@ class home(ft.UserControl):
             ),
             width=400,
             height=700,
-            bgcolor="#2D142C",
+            #bgcolor="#2D142C",
+            #gradient=ft.RadialGradient(["#2D142C","#510A32"]),
+            gradient=ft.LinearGradient(
+                begin=ft.alignment.top_center,
+                end=ft.alignment.bottom_center,
+                colors=["#2D142C","#510A32"]),
             border_radius=10,
             alignment=ft.alignment.center
             )
