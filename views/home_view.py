@@ -49,11 +49,12 @@ class home(ft.UserControl):
                         #on_click=
                     ),
                 ],
-                alignment=ft.MainAxisAlignment.CENTER,
+                alignment = ft.MainAxisAlignment.CENTER,
             ),
             width=400,
             height=700,
             bgcolor="#2D142C",
-            border_radius=10
+            border_radius=10,
+            alignment=ft.alignment.center
             )
         return page
