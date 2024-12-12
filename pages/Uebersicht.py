@@ -25,7 +25,7 @@ class Uebersicht(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        #on_click=lambda _: self.page.go("/login")
+                        on_click=lambda _: self.page.go("/Rollenuebersicht")
                     ),
 
                     ft.Container(
@@ -37,7 +37,7 @@ class Uebersicht(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        #on_click=lambda _: self.page.go("/login")
+                        on_click=lambda _: self.page.go("/Spielregln")
                     ),
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
