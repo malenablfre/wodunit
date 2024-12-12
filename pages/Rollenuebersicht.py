@@ -12,20 +12,20 @@ class Rollenuebersicht(ft.UserControl):
                 controls=[
                     ft.Container(
                         content=ft.Text(value="Rollenübersicht", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
-                        margin=10,
-                        padding=10,
+                        margin=5,
+                        padding=5,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Rolle", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
+                        content=ft.Text(value="Rolle", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=7,
+                        padding=7,
                     ),
 
                     ft.Container(
                         content=ft.Text(value="beschreibung", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
+                        margin=9,
+                        padding=9,
 
                     ),
 
@@ -37,7 +37,7 @@ class Rollenuebersicht(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Übersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="Übersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                         padding=10,
                         

@@ -11,19 +11,19 @@ class Spielregeln(ft.UserControl):
                 spacing=0,
                 controls=[
                     ft.Container(
-                        content=ft.Text(value="Whodunit?", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                        content=ft.Text(value="Spielregeln", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Das Spiel des Mörders", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        content=ft.Text(value="Regel", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Aktive Spiele", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="Beschriebung", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                         padding=10,
                     ),
@@ -41,7 +41,7 @@ class Spielregeln(ft.UserControl):
                     ),
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                
             ),
             width=400,
             height=700,
