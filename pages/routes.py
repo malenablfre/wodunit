@@ -16,11 +16,11 @@ def views_handler(page):
             controls=[
                 login(page)
             ]
+        ),
+        '/Uebersicht':ft.View(
+            route='/Uebersicht',
+            controls=[
+                Uebersicht(page)
+            ]
         )
-        # '/Uebersicht':ft.View(
-        #     route='/',
-        #     controls=[
-        #         Uebersicht(page)
-        #     ]
-        # )
     }
