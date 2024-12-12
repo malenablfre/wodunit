@@ -2,7 +2,7 @@ import flet as ft
 from pages.routes import views_handler
 
 def main(page: ft.Page):
-    page.title = "Home"
+    page.title = "HOME"
     page.window_width = 400
     page.window_height = 700
     page.window_resizable = False

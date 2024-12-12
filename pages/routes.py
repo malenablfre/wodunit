@@ -1,7 +1,7 @@
 import flet as ft
 from pages.home import home
 from pages.login import login
-
+from pages.Uebersicht import Uebersicht 
 
 def views_handler(page):
     return {
@@ -17,4 +17,10 @@ def views_handler(page):
                 login(page)
             ]
         )
+        # '/Uebersicht':ft.View(
+        #     route='/',
+        #     controls=[
+        #         Uebersicht(page)
+        #     ]
+        # )
     }
