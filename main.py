@@ -20,6 +20,6 @@ def main(page: ft.Page):
 
 
     page.on_route_change = route_change
-    page.go('/')
+    page.go('/signup')
 
 ft.app(target=main)

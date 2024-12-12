@@ -1,10 +1,10 @@
 import flet as ft
 
-class login(ft.UserControl):
+class signup(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
-        self.text_username: ft.TextField = ft.TextField(label='Username',
+        self.text_username: ft.TextField = ft.TextField(label='Email',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -35,6 +35,17 @@ class login(ft.UserControl):
                                             cursor_color="#EE4540",
                                             password=True,
                                             )
+        self.checkbox_signup: ft.Checkbox = ft.Checkbox(label='I agree to stuff',
+                                            value=False,
+                                            label_style=ft.TextStyle(
+                                                font_family= "Times New Roman",
+                                                color="#EE4540"
+                                            ),
+                                            check_color="#EE4540",
+                                            fill_color="#510A32",
+                                            overlay_color="#801336",
+                                            border_side=ft.BorderSide(color="#EE4540", width=1)
+                                            )
         self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Sign up',
                                                   style=ft.ButtonStyle(
                                                       color="#EE4540",
@@ -49,13 +60,14 @@ class login(ft.UserControl):
                                                   disabled=True
                                                   )
         
+        self.checkbox_signup.on_change = self.validate
         self.text_username.on_change = self.validate
         self.text_password.on_change = self.validate
         self.button_submit.on_click = self.submit
 
 
     def validate(self, e: ft.ControlEvent) -> None:
-        if all([self.text_username.value, self.text_password.value]):
+        if all([self.text_username.value, self.text_password.value, self.checkbox_signup.value]):
             self.button_submit.disabled = False
         else:
             self.button_submit.disabled = True
@@ -78,7 +90,7 @@ class login(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Login", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        content=ft.Text(value="Signup", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
                     ),
 
                     ft.Container(
@@ -86,6 +98,7 @@ class login(ft.UserControl):
                             controls=[
                                 self.text_username,
                                 self.text_password,
+                                ft.Container(content=self.checkbox_signup, width=200),
                                 self.button_submit
                             ],
                         alignment=ft.MainAxisAlignment.CENTER,
