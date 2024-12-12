@@ -55,6 +55,7 @@ class home(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
+                        ink = True, 
                         on_click=lambda _: self.page.go("/Uebersicht")
                     ),
                 ],
