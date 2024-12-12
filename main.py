@@ -1,13 +1,13 @@
-from flet import *
-from views.routes import views_handler
+import flet as ft
+from pages.routes import views_handler
 
-def main(page: Page):
+def main(page: ft.Page):
     page.title = "Home"
     page.window_width = 400
     page.window_height = 700
     page.window_resizable = False
-    page.vertical_alignment = MainAxisAlignment.CENTER
-    page.horizontal_alignment = CrossAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     #page.bgcolor = "#2D142C"
     
     def route_change(route):
@@ -22,4 +22,4 @@ def main(page: Page):
     page.on_route_change = route_change
     page.go('/')
 
-app(target=main)
+ft.app(target=main)

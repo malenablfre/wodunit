@@ -1,22 +1,22 @@
-from flet import *
+import flet as ft
 
-class login(UserControl):
+class login(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
 
     def build(self):
-        return Column(
+        return ft.Column(
             controls=[
-                Container(
+                ft.Container(
                     height=800,
                     width=350,
                     bgcolor="blue",
-                    content=Column(
+                    content=ft.Column(
                         controls=[
-                            Text('Welcome to the login'),
-                            Container(
-                                content=TextButton("Go to Homepage", on_click=lambda _: self.page.go("/"))
+                            ft.Text('Welcome to the login'),
+                            ft.Container(
+                                content=ft.TextButton("Go to Homepage", on_click=lambda _: self.page.go("/"))
                             )
                         ]
                     )

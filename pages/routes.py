@@ -1,17 +1,17 @@
-from flet import *
-from views.home_view import home
-from views.login_view import login
+import flet as ft
+from pages.home import home
+from pages.login import login
 
 
 def views_handler(page):
     return {
-        '/':View(
+        '/':ft.View(
             route='/',
             controls=[
                 home(page)
             ]
         ),
-        '/login':View(
+        '/login':ft.View(
             route='/login',
             controls=[
                 login(page)
