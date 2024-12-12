@@ -17,7 +17,7 @@ class Uebersicht(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="Rollenübersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                         alignment=ft.alignment.center,
@@ -28,7 +28,7 @@ class Uebersicht(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Übersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="Spielregeln", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                         alignment=ft.alignment.center,
@@ -39,6 +39,7 @@ class Uebersicht(ft.UserControl):
                     ),
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             ),
             width=400,
             height=700,
