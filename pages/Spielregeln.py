@@ -9,6 +9,7 @@ class Spielregeln(ft.UserControl):
         page = ft.Container(
                 ft.Column(
                 spacing=0,
+                scroll=ft.ScrollMode.ALWAYS,
                 controls=[
                     ft.Container(
                         content=ft.Text(value="Spielregeln", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
@@ -17,31 +18,155 @@ class Spielregeln(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Regel", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="1.   Verdacht notieren: ", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Beschriebung", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        content=ft.Text(value="Wenn Verdacht besteht, muss er in den Notizen eingetragen werden.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Spiel beitreten", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="2.	Veröffentlichung der Liste: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="Die Liste wird täglich um 18 Uhr veröffentlicht.", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Übersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="3.	Eintrag nach Tod:", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
+
+                    ft.Container(
+                        content=ft.Text(value="Direkt nach dem Tod muss der Name eingetragen werden.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="4.	Meeting Button: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Bei Betätigung des Meeting Buttons wird die Liste direkt veröffentlicht ", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="5.	Voting Liste: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Die Voting Liste wird vom Host geführt", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
-                
+            
             ),
             width=400,
             height=700,
@@ -50,6 +175,6 @@ class Spielregeln(ft.UserControl):
                 end=ft.alignment.bottom_center,
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
-            alignment=ft.alignment.center
+            alignment=ft.alignment.center,
             )
         return page
