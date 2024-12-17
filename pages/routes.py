@@ -2,6 +2,7 @@ import flet as ft
 from pages.home import home
 from pages.login import login
 from pages.gameslots import gameslots
+from pages.gamemenu import gamemenu
 
 
 def views_handler(page):
@@ -22,6 +23,12 @@ def views_handler(page):
             route='/gameslots',
             controls=[
                 gameslots(page)
+            ]
+        ),
+        '/gamemenu':ft.View(
+            route='/gamemenu',
+            controls=[
+                gamemenu(page)
             ]
         )
     }

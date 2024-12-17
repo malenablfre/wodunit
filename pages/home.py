@@ -39,7 +39,7 @@ class home(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        #on_click=
+                        on_click=lambda _: self.page.go("/gamemenu")
                     ),
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
