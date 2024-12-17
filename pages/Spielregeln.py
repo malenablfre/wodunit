@@ -12,7 +12,7 @@ class Spielregeln(ft.UserControl):
                 scroll=ft.ScrollMode.ALWAYS,
                 controls=[
                     ft.Container(
-                        content=ft.Text(value="Spielregeln", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                        content=ft.Text(value="Die 13 Gebote", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                         margin=10,
                         padding=10,
                     ),
