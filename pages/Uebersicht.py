@@ -38,7 +38,8 @@ class Uebersicht(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        ink = True, 
+                        ink= True ,
+                        ink_color=ft.colors.RED_900,
                         on_click=lambda _: self.page.go("/Spielregln")
                     ),
                 ],
