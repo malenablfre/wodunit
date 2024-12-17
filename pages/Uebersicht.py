@@ -40,8 +40,22 @@ class Uebersicht(ft.UserControl):
                         border_radius=10,
                         ink= True ,
                         ink_color=ft.colors.RED_900,
-                        on_click=lambda _: self.page.go("/Spielregln")
+                        on_click=lambda _: self.page.go("/Spielregeln")
                     ),
+                    ft.Container(
+                        content=ft.Text(value="↩", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                        alignment=ft.alignment.center,
+                        bgcolor="#510A32",
+                        width=250,
+                        height=50,
+                        border_radius=10,
+                        ink= True ,
+                        ink_color=ft.colors.RED_900,
+                        on_click=lambda _: self.page.go("/")
+                    ),
+
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -54,5 +68,6 @@ class Uebersicht(ft.UserControl):
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
             alignment=ft.alignment.center
-            )
+        )
+        
         return page

@@ -31,8 +31,8 @@ def views_handler(page):
                 Rollenuebersicht(page)
             ]
         ), 
-        '/Spielregln':ft.View(
-            route='/Spielregln',
+        '/Spielregeln':ft.View(
+            route='/Spielregeln',
             controls=[
                 Spielregeln(page)
             ]
