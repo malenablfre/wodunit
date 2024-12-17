@@ -1,6 +1,9 @@
 import flet as ft
 from pages.home import home
 from pages.login import login
+from pages.neuesspiel import neuesspiel
+from pages.spieleinstellungen import spieleinstellungen
+from pages.erstelltesspiel import erstelltesspiel
 
 
 def views_handler(page):
@@ -16,5 +19,23 @@ def views_handler(page):
             controls=[
                 login(page)
             ]
-        )
+        ),
+        '/neuesspiel':ft.View(
+            route='/neuesspiel',
+            controls=[
+                neuesspiel(page)
+            ]
+        ),
+        '/spieleinstellungen':ft.View(
+            route='/spieleinstellungen',
+            controls=[
+                spieleinstellungen(page)
+            ]
+        ),
+        '/erstelltesspiel':ft.View(
+            route='/erstelltesspiel',
+            controls=[
+                erstelltesspiel(page)
+            ]
+        ),
     }
