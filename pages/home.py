@@ -1,14 +1,15 @@
 import flet as ft
 
 class home(ft.UserControl):
-    def __init__(self, page):
+    def __init__(self, page: ft.Page):
         super().__init__()
         self.page = page
         # self.expand = True
         # self.offset = ft.transform.Offset(0,0,)
 
     def build(self):
-        page = ft.Container(
+        page = ft.Stack([
+            ft.Container(
             ft.Column(
                 spacing=0,
                 controls=[
@@ -33,7 +34,7 @@ class home(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        on_click=lambda _: self.page.go("/login")
+                        # on_click=lambda _: self.page.go("/login")
                     ),
 
                     ft.Container(
@@ -72,5 +73,10 @@ class home(ft.UserControl):
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
             alignment=ft.alignment.center
+            ),
+            ft.Container(
+                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda e: self.page.on_view_pop(None)),
+                alignment=ft.alignment.top_left
             )
+        ])
         return page

@@ -55,11 +55,15 @@ class login(ft.UserControl):
 
 
     def validate(self, e: ft.ControlEvent) -> None:
-        if all([self.text_username.value, self.text_password.value]):
-            self.button_submit.disabled = False
-        else:
-            self.button_submit.disabled = True
-
+        special_characters = set("/!@#$%^&*(),.?\":|<>")
+        password = self.text_password.value
+        is_valid = (
+            self.text_username.value and
+            password and
+            len(password) >= 7 and
+            any(char in special_characters for char in password)
+        )
+        self.button_submit.disabled = not is_valid
         self.update()
 
     def submit(self, e: ft.ControlEvent) -> None:
