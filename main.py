@@ -19,7 +19,8 @@ class Main(ft.UserControl):
         self.page.spacing = 0
 
         self.page.on_route_change = self.route_change
-        self.page.go('/login')
+        self.page.on_view_pop = self.view_pop
+        self.page.go('/signup')
     
     def route_change(self, route):
         print(self.page.route)
@@ -28,6 +29,12 @@ class Main(ft.UserControl):
             views_handler(self.page)[self.page.route]
         )
         self.page.update()
+
+    def view_pop(self, view):
+        self.page.views.pop()
+        top_view = self.page.views[-1]
+        self.page.go(top_view.route)
+
 
 
 
