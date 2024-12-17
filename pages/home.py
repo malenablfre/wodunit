@@ -4,10 +4,12 @@ class home(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+        # self.expand = True
+        # self.offset = ft.transform.Offset(0,0,)
 
     def build(self):
         page = ft.Container(
-                ft.Column(
+            ft.Column(
                 spacing=0,
                 controls=[
                     ft.Container(

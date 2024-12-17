@@ -35,7 +35,7 @@ class login(ft.UserControl):
                                             cursor_color="#EE4540",
                                             password=True,
                                             )
-        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Sign up',
+        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Log in',
                                                   style=ft.ButtonStyle(
                                                       color="#EE4540",
                                                       bgcolor="#510A32",
