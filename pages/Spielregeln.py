@@ -30,18 +30,18 @@ class Spielregeln(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="2.	Veröffentlichung der Liste: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="2.   Veröffentlichung der Liste: ", size= 22, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
                     ft.Container(
-                        content=ft.Text(value="Die Liste wird täglich um 18 Uhr veröffentlicht.", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        content=ft.Text(value="Die Liste wird täglich um 18 Uhr veröffentlicht.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                         padding=10,
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="3.	Eintrag nach Tod:", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="3.   Eintrag nach Tod:", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
@@ -52,7 +52,7 @@ class Spielregeln(ft.UserControl):
                         padding=10,
                     ),
                     ft.Container(
-                        content=ft.Text(value="4.	Meeting Button: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="4.   Meeting Button: ", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
@@ -64,7 +64,7 @@ class Spielregeln(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="5.	Voting Liste: ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="5.   Voting Liste: ", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
@@ -76,7 +76,84 @@ class Spielregeln(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value="6.   Emergency Meeting: ", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Ein Emergency Meeting muss spätestens um 18 Uhr einberufen werden.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="7.   Tötungsstopp bei Meeting:", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Sobald ein Emergency Meeting einberufen wurde, darf nicht mehr getötet werden, bis das Meeting abgeschlossen ist.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="8.   Missbrauch des Emergency Buttons:", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Sobald ein Emergency Meeting einberufen wurde, darf nicht mehr getötet werden, bis das Meeting abgeschlossen ist.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="10.  Tötungsziel:", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Innerhalb einer Woche müssen so viele Leute getötet werden, wie es Mörder gibt.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="11.  Mordregel", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Ein Mord darf nur stattfinden, wenn sich zwei Lebende in einem Raum befinden (Mörder und Opfer).", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="12.  Kein Doppel-Kill:", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Es darf kein Doppel-Kill stattfinden.", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="13.  Ziel des Spiels: ", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        margin=10,
+                        padding=10,
+                    ),
+
+                    ft.Container(
+                        content=ft.Text(value="Für Mörder: alle anderen Rollen töten ohne aufzufliegen; Für alle anderen Rollen: alle Mörder identifizieren und raus voten ", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                        margin=10,
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=ft.Text(value="", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                     ),
@@ -86,84 +163,7 @@ class Spielregeln(ft.UserControl):
                         margin=10,
                         padding=10,
                     ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
 
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                    ),
-
-                    ft.Container(
-                        content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=10,
-                        padding=10,
-                    ),
-                    
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
             
