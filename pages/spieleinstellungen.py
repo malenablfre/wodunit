@@ -6,22 +6,23 @@ class spieleinstellungen(ft.UserControl):
         self.page = page
 
     def build(self):
-        other_containers = ft.Column(
+        page = ft.Stack([
+            ft.Container(
+            width=400,
+            height=700,
+            gradient=ft.LinearGradient(
+                begin=ft.alignment.top_center,
+                end=ft.alignment.bottom_center,
+                colors=["#2D142C", "#510A32"]
+            ),
+            border_radius=10,
+            alignment=ft.alignment.center
+        ),
+        
+         ft.Column(
             spacing=10,
             controls=[
-                ft.Column(
-                    controls=[
-                        ft.Container(),
-                        ft.Row(
-                            controls=[
-                                ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
-                                ft.Container(content=ft.Text(value="Einstellungen", size=35, font_family="Times New Roman", weight="bold", color="#EE4540"),),
-                                ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
-                            ],
-                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                        )
-                    ]
-                ),
+                ft.Container(height=50),
 
                 ft.Container(
                     content=ft.Column(
@@ -30,13 +31,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="Anzahl der Spieler",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option(str(i)) for i in range(1, 21)],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -44,13 +48,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="Anzahl der Emergency Meetings",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option(str(i)) for i in range(1, 6)],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -58,13 +65,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="Mörder töten Mörder",
                                 hint_text="Auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("Ja"), ft.dropdown.Option("Nein")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -72,27 +82,33 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="Veröffentlichung Todesliste",
                                 hint_text="Uhrzeit auswählen",
-                                options=[ft.dropdown.Option(f"{i}:00") for i in range(12, 21)],
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
+                                options=[ft.dropdown.Option(f"{i}:00") for i in range(0, 24)],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
 
                             ft.Dropdown(
-                                label="öffentliche Votes",
+                                label="Öffentliche Votes",
                                 hint_text="Auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("Ja"), ft.dropdown.Option("Nein")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -100,13 +116,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="Anzahl Mörder",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -114,13 +133,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="test",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -128,13 +150,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="test",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -142,13 +167,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="test",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -156,13 +184,16 @@ class spieleinstellungen(ft.UserControl):
                             ft.Dropdown(
                                 label="test",
                                 hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
                                 options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",
                                 bgcolor="#510A32",
                                 border_color="#EE4540",
-                                width=250,
+                                width=300,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -174,8 +205,8 @@ class spieleinstellungen(ft.UserControl):
                 margin=10,
                 padding=10,
                 alignment=ft.alignment.center,
-                width=250,
-                height=400,
+                width=300,
+                height=450,
                 border_radius=10,
                 ),
 
@@ -191,28 +222,25 @@ class spieleinstellungen(ft.UserControl):
                     ink=True,
                     on_click=lambda _: self.page.go("/erstelltesspiel")
                 ),
+
+                
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        )
-
-        background_container = ft.Container(
-            content=other_containers,
-            width=400,
-            height=700,
-            gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
-                colors=["#2D142C", "#510A32"]
-            ),
-            border_radius=10,
-            alignment=ft.alignment.center
-        )
-
-        page = ft.Stack(
-            controls=[
-                background_container,
-            ]
-        )
+        ),
+        ft.Column(
+                    controls=[
+                        ft.Container(),
+                        ft.Row(
+                            controls=[
+                                ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
+                                ft.Container(content=ft.Text(value="Einstellungen", size=35, font_family="Times New Roman", weight="bold", color="#EE4540"),),
+                                ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
+                            ],
+                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                        )
+                    ]
+                ),
+        ])
 
         return page
