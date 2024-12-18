@@ -7,8 +7,6 @@ class role(ft.UserControl):
         self.role = "Unschuldig"
         self.description = "Du bist ein normaler Teilnehmer ohne besondere Fähigkeiten. Dein Ziel ist es, die Mörder zu entlarven und zu eliminieren."
 
-        
-
     def build(self):
         page = ft.Stack([
         ft.Container(   
@@ -90,7 +88,7 @@ class role(ft.UserControl):
         ]),
         
         ft.Container(
-            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540"),
+            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=lambda e: self.page.go("/dead")),
             alignment=ft.alignment.bottom_right,
             margin=ft.margin.only(top=550, right=20)
         ),
@@ -100,9 +98,9 @@ class role(ft.UserControl):
                 ft.Container(),
                 ft.Row(
                     controls=[
-                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/signup")),),
+                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
                         ft.Container(content=ft.Text(value="Meine Rolle", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
-                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/signup")),),
+                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                 )

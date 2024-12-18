@@ -31,7 +31,7 @@ class home(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        on_click=lambda _: self.page.go("/role")
+                        on_click=lambda _: self.page.go("/safety")
                     ),
 
                     ft.Container(
