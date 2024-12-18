@@ -114,7 +114,7 @@ class spieleinstellungen(ft.UserControl):
                             ),
 
                             ft.Dropdown(
-                                label="Anzahl Mörder",
+                                label="Mörder",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
@@ -131,7 +131,7 @@ class spieleinstellungen(ft.UserControl):
                             ),
 
                             ft.Dropdown(
-                                label="test",
+                                label="Unschuldige",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
@@ -148,7 +148,7 @@ class spieleinstellungen(ft.UserControl):
                             ),
 
                             ft.Dropdown(
-                                label="test",
+                                label="Spione",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
@@ -165,7 +165,7 @@ class spieleinstellungen(ft.UserControl):
                             ),
 
                             ft.Dropdown(
-                                label="test",
+                                label="Gerichtsmediziner",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
@@ -182,7 +182,58 @@ class spieleinstellungen(ft.UserControl):
                             ),
 
                             ft.Dropdown(
-                                label="test",
+                                label="Anwälte",
+                                hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
+                                options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
+                                autofocus=True,
+                                alignment=ft.alignment.center,
+                                color="#EE4540",
+                                bgcolor="#510A32",
+                                border_color="#EE4540",
+                                width=300,
+                                height=50,
+                                border_radius=10,
+                            ),
+
+                            ft.Dropdown(
+                                label="Priester",
+                                hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
+                                options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
+                                autofocus=True,
+                                alignment=ft.alignment.center,
+                                color="#EE4540",
+                                bgcolor="#510A32",
+                                border_color="#EE4540",
+                                width=300,
+                                height=50,
+                                border_radius=10,
+                            ),
+
+                            ft.Dropdown(
+                                label="Doppelgänger",
+                                hint_text="Anzahl auswählen",
+                                hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                                text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
+                                options=[ft.dropdown.Option("1"), ft.dropdown.Option("2")],
+                                autofocus=True,
+                                alignment=ft.alignment.center,
+                                color="#EE4540",
+                                bgcolor="#510A32",
+                                border_color="#EE4540",
+                                width=300,
+                                height=50,
+                                border_radius=10,
+                            ),
+
+                            ft.Dropdown(
+                                label="Geister",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
