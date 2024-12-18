@@ -8,6 +8,15 @@ class Spielregeln(ft.UserControl):
     def build(self):
             page = ft.Stack([
             ft.Container(
+                width=400,
+                height=700,
+                gradient=ft.LinearGradient(
+                    begin=ft.alignment.top_center,
+                    end=ft.alignment.bottom_center,
+                    colors=["#2D142C","#510A32"]),
+                border_radius=10,
+                alignment=ft.alignment.center
+                ),
                     ft.Column(
                     spacing=0,
                     scroll=ft.ScrollMode.HIDDEN,
@@ -135,16 +144,7 @@ class Spielregeln(ft.UserControl):
   
                     ],
                     alignment = ft.MainAxisAlignment.CENTER,
-                ),
-                width=400,
-                height=700,
-                gradient=ft.LinearGradient(
-                    begin=ft.alignment.top_center,
-                    end=ft.alignment.bottom_center,
-                    colors=["#2D142C","#510A32"]),
-                border_radius=10,
-                alignment=ft.alignment.center
-                ),
+                ),   
             ft.Column(
                 controls=[
                     ft.Container(),

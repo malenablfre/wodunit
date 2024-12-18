@@ -8,11 +8,20 @@ class Rollenuebersicht(ft.UserControl):
     def build(self):
         page = ft.Stack([
             ft.Container(
-                    ft.Column(
+                width=400,
+                height=700,
+                gradient=ft.LinearGradient(
+                    begin=ft.alignment.top_center,
+                    end=ft.alignment.bottom_center,
+                    colors=["#2D142C","#510A32"]),
+                border_radius=10,
+                alignment=ft.alignment.center
+                ),
+                
+                ft.Column(
                     spacing=0,
                     scroll=ft.ScrollMode.HIDDEN,
                     controls=[
-
                     ft.Container(
                         content=ft.Text(value="Unschuldiger", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=7,
@@ -35,15 +44,7 @@ class Rollenuebersicht(ft.UserControl):
                 ],
                     alignment = ft.MainAxisAlignment.CENTER,
                 ),
-                width=400,
-                height=700,
-                gradient=ft.LinearGradient(
-                    begin=ft.alignment.top_center,
-                    end=ft.alignment.bottom_center,
-                    colors=["#2D142C","#510A32"]),
-                border_radius=10,
-                alignment=ft.alignment.center
-                ),
+                
             ft.Column(
                 controls=[
                     ft.Container(),
@@ -57,6 +58,6 @@ class Rollenuebersicht(ft.UserControl):
                     )
                 ]
             )
-            ])
+        ])
 
         return page
