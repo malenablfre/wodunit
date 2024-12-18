@@ -17,11 +17,15 @@ class Rollenuebersicht(ft.UserControl):
                 border_radius=10,
                 alignment=ft.alignment.center
                 ),
-                
+            ft.Column(
+                controls=[
+                ft.Container(height=50),
+            ft.Container(    
                 ft.Column(
                     spacing=0,
                     scroll=ft.ScrollMode.HIDDEN,
                     controls=[
+                    ft.Container(),
                     ft.Container(
                         content=ft.Text(value="Unschuldiger", size= 25, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=7,
@@ -42,22 +46,28 @@ class Rollenuebersicht(ft.UserControl):
                         margin=10,  
                     ),
                 ],
-                    alignment = ft.MainAxisAlignment.CENTER,
-                ),
-                
+                alignment = ft.MainAxisAlignment.CENTER,
+            ), 
+            height=600,
+            alignment=ft.alignment.center, 
+        ),
+        ]), 
+
+
             ft.Column(
                 controls=[
                     ft.Container(),
                     ft.Row(
                         controls=[
                             ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/Uebersicht")),),
-                            ft.Container(content=ft.Text(value="Rolleübersicht", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
+                            ft.Container(content=ft.Text(value="Die 13 Gebote", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
                             ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/Uebersicht")),),
                         ],
                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                     )
                 ]
             )
-        ])
+    ])
+            
 
         return page
