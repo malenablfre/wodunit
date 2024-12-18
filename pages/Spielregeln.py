@@ -1,4 +1,4 @@
-import flet as ft
+import flet as ft  
 
 class Spielregeln(ft.UserControl):
     def __init__(self, page):
@@ -6,23 +6,12 @@ class Spielregeln(ft.UserControl):
         self.page = page
 
     def build(self):
-        back_container = ft.Container(
-            content=ft.Text(value="↩", size=20, font_family="Times New Roman", weight="bold", color="#C72C42"),
-            margin=10,
-            padding=10,
-            alignment=ft.alignment.center,
-            bgcolor="#510A32",
-            width= 50,
-            height=50,
-            border_radius=10,
-            ink=True,
-            on_click=lambda _: self.page.go("/Uebersicht")
-        )
-
-        other_containers =ft.Column(
-              spacing=10,
-              scroll=ft.ScrollMode.HIDDEN,
-              controls=[
+            page = ft.Stack([
+            ft.Container(
+                    ft.Column(
+                    spacing=0,
+                    scroll=ft.ScrollMode.HIDDEN,
+                    controls=[
                     ft.Container(
                         content=ft.Text(value="Die 13 Gebote", size= 40, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                         margin= 20,
@@ -148,32 +137,33 @@ class Spielregeln(ft.UserControl):
                         content=ft.Text(value="", size= 20, font_family= "Times New Roman", weight= "bold", color="#801336"),
                         margin=10,
                     ),
-                ],
-                alignment = ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            
+  
+                    ],
+                    alignment = ft.MainAxisAlignment.CENTER,
+                ),
+                width=400,
+                height=700,
+                gradient=ft.LinearGradient(
+                    begin=ft.alignment.top_center,
+                    end=ft.alignment.bottom_center,
+                    colors=["#2D142C","#510A32"]),
+                border_radius=10,
+                alignment=ft.alignment.center
+                ),
+            ft.Column(
+                controls=[
+                    ft.Container(),
+                    ft.Row(
+                        controls=[
+                            ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/signup")),),
+                            ft.Container(content=ft.Text(value="Meine Rolle", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
+                            ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/signup")),),
+                        ],
+                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                    )
+                ]
             )
-        
-        
-        
-        background_container = ft.Container(
-            content=other_containers,
-            width=400,
-            height=700,
-            gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
-                colors=["#2D142C","#510A32"]
-            ),
-            border_radius=10,
-            alignment=ft.alignment.center
-        )
-        
-        page = ft.Stack(
-            controls=[
-                background_container,  
-                back_container,
-            ]
-        )
+            ])
+            
 
-        return page
+            return page
