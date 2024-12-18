@@ -74,7 +74,20 @@ class signup(ft.UserControl):
                                                   width=200,
                                                   disabled=True
                                                   )
-        
+        self.button_account: ft.TextButton = ft.TextButton(text="Du hast schon einen Account?",
+                                              style=ft.ButtonStyle(
+                                                  text_style=ft.TextStyle(
+                                                      size=15,
+                                                      font_family= "Times New Roman",
+                                                      decoration=ft.TextDecoration.UNDERLINE,
+                                                      decoration_color="#EE4540",
+                                                      ),
+                                                  color="#EE4540",
+                                                  overlay_color="#801336"
+                                                  ),
+                                              on_click=lambda _: self.page.go("/login")
+                                              )
+
         self.checkbox_signup.on_change = self.validate
         self.text_email.on_change = self.validate
         self.text_password.on_change = self.validate
@@ -123,7 +136,8 @@ class signup(ft.UserControl):
                                 self.text_username,
                                 self.text_password,
                                 ft.Container(content=self.checkbox_signup, width=200),
-                                self.button_submit
+                                self.button_submit,
+                                self.button_account
                             ],
                         alignment=ft.MainAxisAlignment.CENTER,
                         horizontal_alignment= ft.CrossAxisAlignment.CENTER

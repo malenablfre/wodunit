@@ -73,7 +73,9 @@ class login(ft.UserControl):
 
 
     def build(self):
-        page = ft.Container(
+        page = ft.Stack([
+            ft.Container(
+            
             ft.Column(
                 spacing=0,
                 controls=[
@@ -111,5 +113,11 @@ class login(ft.UserControl):
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
             alignment=ft.alignment.center
-        )
+            ),
+            ft.Container(
+                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/signup")),
+                alignment=ft.alignment.top_left
+            ),
+        ])
+
         return page

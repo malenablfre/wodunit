@@ -12,10 +12,6 @@ class Main(ft.UserControl):
         page.vertical_alignment = ft.MainAxisAlignment.CENTER
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
-        # page.bgcolor = ft.colors.TRANSPARENT
-        # page.window_bgcolor = ft.colors.TRANSPARENT
-        #page.bgcolor = "#2D142C"
-
         self.page.spacing = 0
 
         self.page.on_route_change = self.route_change
