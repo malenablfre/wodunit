@@ -51,7 +51,7 @@ class erstelltesspiel(ft.UserControl):
 
     def build(self):
         container = ft.Container(
-            content=ft.Text(value="Klicke hier, um Code zu generieren!", size=20, weight="bold", color="#C72C42"),
+            content=ft.Text(value="Code generieren", size=20, weight="bold", color="#C72C42"),
             width=300,
             height=100,
             bgcolor="#510A32",

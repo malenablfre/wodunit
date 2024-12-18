@@ -6,22 +6,38 @@ class neuesspiel(ft.UserControl):
         self.page = page
 
     def build(self):
-        back_container = ft.Container(
-            content=ft.Text(value="↩", size=20, font_family="Times New Roman", weight="bold", color="#C72C42"),
-            margin=10,
-            padding=10,
-            alignment=ft.alignment.center,
-            bgcolor="#510A32",
-            width=50,
-            height=50,
-            border_radius=10,
-            ink=True,
-            on_click=lambda _: self.page.go("/")
-        )
+        # back_container = ft.Column(
+        #     controls=[
+        #         ft.Container(),
+        #         ft.Row(
+        #             controls=[
+        #                 ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+        #                 ft.Container(content=ft.Text(value="Spiele", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
+        #                 ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+        #             ],
+        #             alignment=ft.MainAxisAlignment.SPACE_AROUND,
+        #         )
+        #     ]
+        # ),
 
         other_containers = ft.Column(
             spacing=10,  
             controls=[
+                ft.Column(
+            controls=[
+                ft.Container(),
+                ft.Row(
+                    controls=[
+                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+                        ft.Container(content=ft.Text(value="Spiele", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
+                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+                    ],
+                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                )
+            ]
+        ),
+
+
                 ft.Container(
                     content=ft.Text(value="Neues Spiel", size=30, font_family="Times New Roman", weight="bold", color="#EE4540"),
                     margin=10,
@@ -79,7 +95,7 @@ class neuesspiel(ft.UserControl):
         page = ft.Stack(
             controls=[
                 background_container,  
-                back_container,  
+                #back_container,  
             ]
         )
 
