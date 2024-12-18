@@ -98,16 +98,47 @@ class signup(ft.UserControl):
     def validate(self, e: ft.ControlEvent) -> None:
         special_characters = set("/!@#$%^&*(),.?\":|<>")
         password = self.text_password.value
-        is_valid = (
+        # general validation 
+        if all([
             self.text_username.value and
             self.text_email.value and
+            self.checkbox_signup.value and
             password and
             len(password) >= 7 and
             any(char in special_characters for char in password) and
-            self.text_email.value.count("@") == 1
-        )
-        self.button_submit.disabled = not is_valid
+            self.valid_email(self.text_email.value)
+            ]):
+            self.button_submit.disabled = False
+        else:
+            self.button_submit.disabled = True
+
+        # password validation/error text
+        if len(password) < 7 and len(password) != 0:
+            self.text_password.error_text = "Passwort zu kurz"
+        elif not any(char in special_characters for char in password) and len(password) != 0:
+            self.text_password.error_text = "Min. ein Sonderzeichen"
+        else:
+            self.text_password.error_text = ""
+        # email validation/error text
+        if not self.valid_email(self.text_email.value) and len(self.text_email.value) != 0:
+            self.text_email.error_text = "Email ungültig"
+        else:
+            self.text_email.error_text = ""
+
         self.update()
+
+    def valid_email(self, email):
+        if email.count('@') != 1:
+            return False
+        local_part, domain_part = email.split('@')
+        if not local_part or not domain_part:
+            return False
+        if '.' not in domain_part:
+            return False
+        domain_name, domain_suffix = domain_part.rsplit('.', 1)
+        if not domain_name or not domain_suffix:
+            return False
+        return True
 
     def submit(self, e: ft.ControlEvent) -> None:
         print("Email:", self.text_email.value)

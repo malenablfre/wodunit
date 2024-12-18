@@ -71,7 +71,7 @@ class home(ft.UserControl):
             alignment=ft.alignment.center
             ),
             ft.Container(
-                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda e: self.page.on_view_pop(None)),
+                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda e: self.page.go("/signup")),
                 alignment=ft.alignment.top_left
             )
         ])

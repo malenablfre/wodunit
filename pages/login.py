@@ -57,13 +57,23 @@ class login(ft.UserControl):
     def validate(self, e: ft.ControlEvent) -> None:
         special_characters = set("/!@#$%^&*(),.?\":|<>")
         password = self.text_password.value
-        is_valid = (
+        # general validation
+        if all([
             self.text_username.value and
             password and
             len(password) >= 7 and
             any(char in special_characters for char in password)
-        )
-        self.button_submit.disabled = not is_valid
+            ]):
+            self.button_submit.disabled = False
+        else:
+            self.button_submit.disabled = True
+        # password validation
+        if len(password) < 7 and len(password) != 0:
+            self.text_password.error_text = "Passwort zu kurz"
+        elif not any(char in special_characters for char in password) and len(password) != 0:
+            self.text_password.error_text = "Min. ein Sonderzeichen"
+        else:
+            self.text_password.error_text = ""
         self.update()
 
     def submit(self, e: ft.ControlEvent) -> None:
