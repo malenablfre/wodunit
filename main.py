@@ -12,6 +12,15 @@ class Main(ft.UserControl):
         page.vertical_alignment = ft.MainAxisAlignment.CENTER
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
+        # page.theme = ft.Theme(
+        #     scrollbar_theme=ft.ScrollbarTheme(
+        #     track_color={
+        #         ft.MaterialState.HOVERED: ft.Colors.AMBER,
+        #         ft.MaterialState.DEFAULT: ft.Colors.TRANSPARENT,
+        #     }
+        #     )
+        # )
+
         # page.bgcolor = ft.colors.TRANSPARENT
         # page.window_bgcolor = ft.colors.TRANSPARENT
         #page.bgcolor = "#2D142C"
@@ -20,7 +29,7 @@ class Main(ft.UserControl):
 
         self.page.on_route_change = self.route_change
         self.page.on_view_pop = self.view_pop
-        self.page.go('/role')
+        self.page.go('/')
     
     def route_change(self, route):
         print(self.page.route)
