@@ -29,6 +29,11 @@ class Main(ft.UserControl):
         )
         self.page.update()
 
+    def view_pop(self, view):
+        self.page.views.pop()
+        top_view = self.page.views[-1]
+        self.page.go(top_view.route)
+
 
 
 ft.app(target=Main)
