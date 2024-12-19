@@ -88,7 +88,7 @@ class role(ft.UserControl):
         ]),
         
         ft.Container(
-            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=lambda e: self.page.go("/dead")),
+            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=self.show_dialog),#ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=lambda e: self.page.go("/dead")),
             alignment=ft.alignment.bottom_right,
             margin=ft.margin.only(top=550, right=20)
         ),
@@ -111,6 +111,29 @@ class role(ft.UserControl):
         ])
         return page
     
+    def show_dialog(self, e):
+        dialog = ft.AlertDialog(
+            title=ft.Text("Achtung"),
+            content=ft.Text("Bist du gestorben?"),
+            actions=[
+                ft.TextButton("Ja", on_click=self.yes_close_dialog),
+                ft.TextButton("Nein", on_click=self.no_close_dialog)
+            ],
+            actions_alignment="end"
+        )
+        self.page.dialog = dialog
+        dialog.open = True
+        self.page.update()
+
+    def yes_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.go("/dead")
+        self.page.update()
+
+    def no_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.update()
+
     # def openalert(self):
     #     self.page.open(self.dlg_modal)
 

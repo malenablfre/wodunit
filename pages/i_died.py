@@ -23,7 +23,7 @@ class dead(ft.UserControl):
             controls=[
                 ft.Container(height=200),
                 ft.Container(
-                    content=ft.Text(value="Bist du gestorben?", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                    content=ft.Text(value="Wo bist du gestorben?", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                         margin=ft.margin.only(left=50, right=50),
                         padding=10,
                 ),
