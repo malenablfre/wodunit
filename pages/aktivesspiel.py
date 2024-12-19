@@ -1,6 +1,6 @@
 import flet as ft
 
-class neuesspiel(ft.UserControl):
+class aktivesspiel(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
@@ -22,46 +22,32 @@ class neuesspiel(ft.UserControl):
          ft.Column(
             spacing=10,
             controls=[
-                ft.Container(height=170),
+                ft.Container(height=190),
 
-                ft.Container(
-                    content=ft.Text(value="Neues Spiel", size=30, font_family="Times New Roman", weight="bold", color="#EE4540"),
-                    margin=0,
-                    padding=10,
-                ),
-
-                ft.Container(
-                    content=ft.Text(value="Neues Spiel erstellen", size=20, font_family="Times New Roman", weight="bold", color="#C72C42"),
-                    margin=0,
-                    padding=10,
-                    alignment=ft.alignment.center,
-                    bgcolor="#510A32",
+                ft.TextField(
+                    label="Code",
+                    color="#EE4540",
+                    border="underline",
+                    hint_text="Code eingeben",
+                    hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                    label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
+                    border_color="#EE4540",
                     width=250,
                     height=50,
-                    border_radius=10,
-                    ink=True,
-                    on_click=lambda _: self.page.go("/spieleinstellungen")
-                ),
-
-                ft.Container(height=40),
-
-                ft.Container(
-                    content=ft.Text(value="Aktives Spiel", size=30, font_family="Times New Roman", weight="bold", color="#EE4540"),
-                    margin=0,
-                    padding=10,
+                    border_radius=20,
                 ),
 
                 ft.Container(
-                    content=ft.Text(value="Spiel beitreten", size=20, font_family="Times New Roman", weight="bold", color="#C72C42"),
-                    margin=0,
+                    content=ft.Text(value="Spiel beitreten", size=20, font_family="Times New Roman", weight="bold", color="#510A32"),
+                    margin=10,
                     padding=10,
                     alignment=ft.alignment.center,
-                    bgcolor="#510A32",
+                    bgcolor="#C72C42",
                     width=250,
                     height=50,
-                    border_radius=10,
+                    border_radius=20,
                     ink=True,
-                    on_click=lambda _: self.page.go("/aktivesspiel")
+                    on_click=lambda _: self.page.go("/neuesspiel")
                 ),
             ],
             alignment=ft.MainAxisAlignment.CENTER,  
@@ -72,7 +58,7 @@ class neuesspiel(ft.UserControl):
                 ft.Container(),
                 ft.Row(
                     controls=[
-                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
                         ft.Container(content=ft.Text(value="Spiele", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
                         ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
                     ],

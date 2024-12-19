@@ -28,13 +28,15 @@ class spieleinstellungen(ft.UserControl):
                     content=ft.Column(
                         spacing=10,
                         controls=[
+                            ft.Container(),
+
                             ft.Dropdown(
                                 label="Anzahl der Spieler",
                                 hint_text="Anzahl auswählen",
                                 hint_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 label_style=ft.TextStyle(font_family= "Times New Roman", color= "#EE4540"),
                                 text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
-                                options=[ft.dropdown.Option(str(i)) for i in range(1, 21)],
+                                options=[ft.dropdown.Option(str(i)) for i in range(5, 26)],
                                 autofocus=True,
                                 alignment=ft.alignment.center,
                                 color="#EE4540",

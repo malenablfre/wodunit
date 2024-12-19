@@ -4,6 +4,7 @@ from pages.login import login
 from pages.neuesspiel import neuesspiel
 from pages.spieleinstellungen import spieleinstellungen
 from pages.erstelltesspiel import erstelltesspiel
+from pages.aktivesspiel import aktivesspiel
 
 
 def views_handler(page):
@@ -36,6 +37,12 @@ def views_handler(page):
             route='/erstelltesspiel',
             controls=[
                 erstelltesspiel(page)
+            ]
+        ),
+        '/aktivesspiel':ft.View(
+            route='/aktivesspiel',
+            controls=[
+                aktivesspiel(page)
             ]
         ),
     }
