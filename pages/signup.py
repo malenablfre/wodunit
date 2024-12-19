@@ -4,7 +4,7 @@ class signup(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
-        self.text_email: ft.TextField = ft.TextField(label='Email',
+        self.text_email: ft.TextField = ft.TextField(label='E-Mail',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -19,7 +19,7 @@ class signup(ft.UserControl):
                                             border_radius=10,
                                             cursor_color="#EE4540"
                                             )
-        self.text_username: ft.TextField = ft.TextField(label='Username',
+        self.text_username: ft.TextField = ft.TextField(label='Benutzername',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -34,7 +34,7 @@ class signup(ft.UserControl):
                                             border_radius=10,
                                             cursor_color="#EE4540"
                                             )
-        self.text_password: ft.TextField = ft.TextField(label='Password',
+        self.text_password: ft.TextField = ft.TextField(label='Passwort',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -50,7 +50,7 @@ class signup(ft.UserControl):
                                             cursor_color="#EE4540",
                                             password=True,
                                             )
-        self.checkbox_signup: ft.Checkbox = ft.Checkbox(label='I agree to stuff',
+        self.checkbox_signup: ft.Checkbox = ft.Checkbox(label='Ich stimme allem zu',
                                             value=False,
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
@@ -61,7 +61,7 @@ class signup(ft.UserControl):
                                             overlay_color="#801336",
                                             border_side=ft.BorderSide(color="#EE4540", width=1)
                                             )
-        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Sign up',
+        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Registrieren',
                                                   style=ft.ButtonStyle(
                                                       color="#EE4540",
                                                       bgcolor="#510A32",
@@ -121,7 +121,7 @@ class signup(ft.UserControl):
             self.text_password.error_text = ""
         # email validation/error text
         if not self.valid_email(self.text_email.value) and len(self.text_email.value) != 0:
-            self.text_email.error_text = "Email ungültig"
+            self.text_email.error_text = "E-Mail ungültig"
         else:
             self.text_email.error_text = ""
 

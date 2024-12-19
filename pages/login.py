@@ -4,7 +4,7 @@ class login(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
-        self.text_username: ft.TextField = ft.TextField(label='Username',
+        self.text_username: ft.TextField = ft.TextField(label='Benutzername',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -19,7 +19,7 @@ class login(ft.UserControl):
                                             border_radius=10,
                                             cursor_color="#EE4540"
                                             )
-        self.text_password: ft.TextField = ft.TextField(label='Password',
+        self.text_password: ft.TextField = ft.TextField(label='Passwort',
                                             label_style=ft.TextStyle(
                                                 font_family= "Times New Roman",
                                                 color="#EE4540"
@@ -35,7 +35,7 @@ class login(ft.UserControl):
                                             cursor_color="#EE4540",
                                             password=True,
                                             )
-        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Log in',
+        self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Anmelden',
                                                   style=ft.ButtonStyle(
                                                       color="#EE4540",
                                                       bgcolor="#510A32",
