@@ -88,7 +88,7 @@ class role(ft.UserControl):
         ]),
         
         ft.Container(
-            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=self.show_dialog),#ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=lambda e: self.page.go("/dead")),
+            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=self.show_dialog),
             alignment=ft.alignment.bottom_right,
             margin=ft.margin.only(top=550, right=20)
         ),
@@ -113,11 +113,12 @@ class role(ft.UserControl):
     
     def show_dialog(self, e):
         dialog = ft.AlertDialog(
-            title=ft.Text("Achtung"),
-            content=ft.Text("Bist du gestorben?"),
+            title=ft.Text("Bist du gestorben?", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
+            # content=ft.Text("Bist du gestorben?"),
+            bgcolor="#801336",
             actions=[
-                ft.TextButton("Ja", on_click=self.yes_close_dialog),
-                ft.TextButton("Nein", on_click=self.no_close_dialog)
+                ft.TextButton(text="Ja", on_click=self.yes_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540")),
+                ft.TextButton("Nein", on_click=self.no_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540"))
             ],
             actions_alignment="end"
         )
@@ -133,18 +134,3 @@ class role(ft.UserControl):
     def no_close_dialog(self, e):
         self.page.dialog.open = False
         self.page.update()
-
-    # def openalert(self):
-    #     self.page.open(self.dlg_modal)
-
-
-    # def alertdialog(self):
-    #     self.dlg_modal = ft.AlertDialog(
-    #     modal=True,
-    #     title=ft.Text("Achtung!"),
-    #     content=ft.Text("Bist du sicher, dass niemand auf dein Handy schauen kann?"),
-    #     actions=[
-    #         ft.TextButton("Yes", on_click=self.page.close(self.dlg_modal)),
-    #         ft.TextButton("No", on_click=lambda _: self.page.go("/")),
-    #     ]
-    #     )
