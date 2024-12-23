@@ -4,6 +4,31 @@ class gamemenu(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+    
+    # ------ SAFETY CHECK -------
+    def show_dialog(self, e):
+        dialog = ft.AlertDialog(
+            title=ft.Text("Achtung!", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
+            content=ft.Text("Bist du sicher, dass niemand deinen Bildschirm sehen kann?", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
+            bgcolor="#801336",
+            actions=[
+                ft.TextButton(text="Ja", on_click=self.yes_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540")),
+                ft.TextButton("Nein", on_click=self.no_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540"))
+            ],
+            actions_alignment="end"
+        )
+        self.page.dialog = dialog
+        dialog.open = True
+        self.page.update()
+ 
+    def yes_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.go("/role")
+        self.page.update()
+ 
+    def no_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.update()
 
     def build(self):
         days = 10
@@ -25,8 +50,18 @@ class gamemenu(ft.UserControl):
                                 alignment=ft.alignment.center,
                             ),
 
+                            # ------ SIDE MENU -------
                             ft.Container(
-                                content=ft.IconButton(ft.Icons.MENU_SHARP, icon_color="#C72C42", on_click=lambda _: self.page.go("/gameslots")),
+                                content=ft.PopupMenuButton(
+                                    icon=ft.Icons.MENU_SHARP,
+                                    icon_color="#EE4540",
+                                    bgcolor="#C72C42",
+                                    items=[
+                                        ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
+                                        ft.PopupMenuItem(text="Rollenübersicht", on_click=self.show_dialog),
+                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
+                                    ]
+                                ),
                                 alignment=ft.alignment.top_right
                             )
                     ],
