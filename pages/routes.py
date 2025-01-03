@@ -2,6 +2,7 @@ import flet as ft
 from pages.home import home
 from pages.login import login
 from pages.Emergency import Emergency
+from pages.Emergency2 import Emergency2
 
 
 def views_handler(page):
@@ -12,10 +13,10 @@ def views_handler(page):
                 home(page)
             ]
         ),
-        '/login':ft.View(
-            route='/login',
+        '/Emergency2':ft.View(
+            route='/Emergency2',
             controls=[
-                login(page)
+                Emergency2(page)
             ]
         ),
         '/Emergency':ft.View(
