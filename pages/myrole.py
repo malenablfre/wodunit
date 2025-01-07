@@ -56,6 +56,7 @@ class role(ft.UserControl):
                     ft.Container(
                         content=ft.TextField(
                             multiline=True,
+                            autofocus= True,
                             border="none",
                             cursor_color="#C72C42",
                             hint_text="...",

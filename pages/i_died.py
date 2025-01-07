@@ -5,10 +5,12 @@ class dead(ft.UserControl):
         super().__init__()
         self.page = page
 
-        self.place_of_death: ft.TextField = ft.TextField(label='Tippe den Ort...',
-            label_style=ft.TextStyle(
-            font_family= "Times New Roman",
-                color="#EE4540"
+        self.place_of_death: ft.TextField = ft.TextField(
+            autofocus= True,
+            hint_text="Tippe den Ort...",
+            hint_style=ft.TextStyle(
+                font_family= "Times New Roman",
+                color="#C72C42"
             ),
             text_style=ft.TextStyle(
                 font_family= "Times New Roman",
