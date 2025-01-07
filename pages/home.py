@@ -23,7 +23,7 @@ class home(ft.UserControl):
                     ),
 
                     ft.Container(
-                        content=ft.Text(value="Emergency2", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
+                        content=ft.Text(value=" Aktive Spiele ", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
                         margin=10,
                         padding=10,
                         alignment=ft.alignment.center,
@@ -31,7 +31,7 @@ class home(ft.UserControl):
                         width=250,
                         height=50,
                         border_radius=10,
-                        on_click=lambda _: self.page.go("/Emergency2")
+                        on_click=lambda _: self.page.go("/")
                     ),
 
                     ft.Container(

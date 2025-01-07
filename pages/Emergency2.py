@@ -40,7 +40,7 @@ class Emergency2(ft.UserControl):
                     ft.Row(
                         controls=[
                                 ft.Container(
-                                    content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#2D142C",hover_color= '#6a102d',splash_color= '#2d142c', on_click=lambda _: self.page.go("/")),
+                                    content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#2D142C",hover_color= '#6f102f',splash_color= '#6f102f', highlight_color= '#6f102f', on_click=lambda _: self.page.go("/")),
                                 ),
     
                                 ft.Container(
@@ -84,7 +84,7 @@ class Emergency2(ft.UserControl):
             ft.Column(
                 controls=[
                     ft.Container(
-                        content= ft.IconButton(ft.Icons.CIRCLE_ROUNDED, icon_size= 200, icon_color='#2D142C',hover_color= '#b2273a', on_click= self.show_dialog, ),
+                        content= ft.IconButton(ft.Icons.CIRCLE_ROUNDED, icon_size= 200, icon_color='#2D142C',hover_color= '#b2273a',highlight_color='#a22335' ,splash_color='#a22335',  on_click= self.show_dialog, ),
                         alignment= ft.alignment.center,
                         margin= ft.margin.only(left=10,top= 250, right=10,bottom= 100 )
                         

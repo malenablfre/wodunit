@@ -42,7 +42,7 @@ class Emergency(ft.UserControl):
                     ft.Row(
                         controls=[  
                             ft.Container(
-                                    content=ft.IconButton( ft.Icons.ARROW_BACK , icon_color="#EE4540", hover_color= '#3f1c3d',splash_color= '#2d142c',  on_click=lambda _: self.page.go("/")),
+                                    content=ft.IconButton( ft.Icons.ARROW_BACK , icon_color="#EE4540", hover_color= '#3f1c3d',splash_color= '#3f1c3d', highlight_color= '#3f1c3d',  on_click=lambda _: self.page.go("/")),
                                 ),
     
                                 ft.Container(
@@ -102,7 +102,7 @@ class Emergency(ft.UserControl):
                     )
                 ]
             ),
-            # ------- Counter -------
+            
             ft.Column(
                 controls=[
                     ft.Container(
