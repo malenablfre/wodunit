@@ -47,23 +47,44 @@ class aktivesspiel(ft.UserControl):
                     height=50,
                     border_radius=20,
                     ink=True,
-                    on_click=lambda _: self.page.go("/neuesspiel")
+                    on_click=lambda _: self.page.go("/erstelltesspiel")
                 ),
             ],
             alignment=ft.MainAxisAlignment.CENTER,  
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         ),
         ft.Column(
-             controls=[
+            controls=[
                 ft.Container(),
                 ft.Row(
                     controls=[
-                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),),
-                        ft.Container(content=ft.Text(value="Spiele", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
-                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+                            ft.Container(
+                                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/neuesspiel")),
+                            ),
+ 
+                            ft.Container(
+                                content=ft.Text(value="Slot 1", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                                #margin=10,
+                                alignment=ft.alignment.center,
+                            ),
+ 
+                            # ------ SIDE MENU -------
+                            ft.Container(
+                                content=ft.PopupMenuButton(
+                                    icon=ft.Icons.MENU_SHARP,
+                                    icon_color="#EE4540",
+                                    bgcolor="#C72C42",
+                                    items=[
+                                        ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
+                                        #ft.PopupMenuItem(text="Rollenübersicht", on_click=self.show_dialog),
+                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
+                                    ]
+                                ),
+                                alignment=ft.alignment.top_right
+                            )
                     ],
-                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                )
+                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                ),
             ]
         ),
         ])

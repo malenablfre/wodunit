@@ -5,6 +5,25 @@ class erstelltesspiel(ft.UserControl):
         super().__init__()
         self.page = page
 
+    def show_dialog(self, e):
+            dialog = ft.AlertDialog(
+                title=ft.Text("Deine Rolle", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=18,)),
+                content=ft.Text("Rolle", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=30,)),
+                bgcolor="#801336",
+                actions=[
+                    ft.TextButton(text="OK", on_click=self.close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540")),
+                ],
+                actions_alignment="end"
+            )
+            self.page.dialog = dialog
+            dialog.open = True
+            self.page.update()
+ 
+    def close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.go("/erstelltesspiel")
+        self.page.update(),
+
     def build(self):
         page = ft.Stack([
             ft.Container(
@@ -17,7 +36,7 @@ class erstelltesspiel(ft.UserControl):
             ),
             border_radius=10,
             alignment=ft.alignment.center
-        ),
+        ), 
 
          ft.Column(
             spacing=10,
@@ -67,23 +86,44 @@ class erstelltesspiel(ft.UserControl):
                     height=50,
                     border_radius=20,
                     ink=True,
-                    on_click=lambda _: self.page.go("/")
+                    on_click=self.show_dialog,
                 ),
             ],
             alignment=ft.MainAxisAlignment.CENTER,  
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         ),
         ft.Column(
-             controls=[
+            controls=[
                 ft.Container(),
                 ft.Row(
                     controls=[
-                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/spieleinstellungen")),),
-                        ft.Container(content=ft.Text(value="Neues Spiel", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
-                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("spieleinstellungen")),),
+                            ft.Container(
+                                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/spieleinstellungen")),
+                            ),
+ 
+                            ft.Container(
+                                content=ft.Text(value="Slot 1", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                                #margin=10,
+                                alignment=ft.alignment.center,
+                            ),
+ 
+                            # ------ SIDE MENU -------
+                            ft.Container(
+                                content=ft.PopupMenuButton(
+                                    icon=ft.Icons.MENU_SHARP,
+                                    icon_color="#EE4540",
+                                    bgcolor="#C72C42",
+                                    items=[
+                                        ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
+                                        ft.PopupMenuItem(text="Rollenübersicht", on_click=self.show_dialog),
+                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
+                                    ]
+                                ),
+                                alignment=ft.alignment.top_right
+                            )
                     ],
-                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                )
+                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                ),
             ]
         ),
         ])
