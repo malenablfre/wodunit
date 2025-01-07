@@ -22,7 +22,7 @@ class role(ft.UserControl):
         
         ft.Column(
             controls=[
-            ft.Container(height=50),
+            ft.Container(height=20),
         ft.Container(
             ft.Column(
                 spacing=0,
@@ -88,7 +88,7 @@ class role(ft.UserControl):
         ]),
         
         ft.Container(
-            content=ft.FloatingActionButton(icon=ft.Icons.ADD, bgcolor="#EE4540", on_click=self.show_dialog),
+            content=ft.FloatingActionButton(icon=ft.Icons.DANGEROUS_OUTLINED, bgcolor="#EE4540", on_click=self.show_dialog),
             alignment=ft.alignment.bottom_right,
             margin=ft.margin.only(top=550, right=20)
         ),
@@ -98,15 +98,32 @@ class role(ft.UserControl):
                 ft.Container(),
                 ft.Row(
                     controls=[
-                        ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
-                        ft.Container(content=ft.Text(value="Meine Rolle", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
-                        ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),),
+                            ft.Container(
+                                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/")),
+                            ),
+ 
+                            ft.Container(
+                                content=ft.Text(value="Meine Rolle", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                            ),
+ 
+                            # ------ SIDE MENU -------
+                            ft.Container(
+                                content=ft.PopupMenuButton(
+                                    icon=ft.Icons.MENU_SHARP,
+                                    icon_color="#EE4540",
+                                    bgcolor="#C72C42",
+                                    items=[
+                                        ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
+                                        ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/")),
+                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
+                                    ]
+                                ),
+                            )
                     ],
-                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                )
+                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                ),
             ]
-        ),
-        
+        )
         
         ])
         return page
