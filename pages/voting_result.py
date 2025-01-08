@@ -1,15 +1,10 @@
 import flet as ft
+from pages import voting_room as vote
 
 class voting_result(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
-
-        self.names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
-        self.suspects = []
-
-        self.all_players = "15"
-        self.active_players = len(self.names)
         
     def build(self):
         page = ft.Stack([
@@ -28,58 +23,68 @@ class voting_result(ft.UserControl):
         # ------ CONTENT ------
         ft.Column(
             controls=[
-                ft.Container(height=50),
+                # ft.Container(height=50),
                 ft.Container(
                     ft.Column(
                         spacing=0,
                         scroll=ft.ScrollMode.HIDDEN,
                         controls=[
-                            ft.Container(),
                             ft.Container(
                                 content=ft.Text(
-                                    value=f"({self.active_players}/{self.all_players} aktiv)",
-                                    size=15,
-                                    font_family="Times New Roman",
+                                    value="Ihr habt rausgevotet:",
+                                    size= 25,
+                                    font_family= "Times New Roman",
+                                    #weight= "bold",
                                     color="#EE4540"
                                 ),
-                                margin=ft.margin.only(left=260, top=25),
-                                width=200,
-
-                            ),
+                                margin=ft.margin.only(left=50, right=50, bottom=10),
+                                #padding=10,
+                            ), 
                             ft.Container(
                                 content=ft.Text(
-                                    value="Alle Teilnehmer",
-                                    size= 25,
+                                    value='"Name"',
+                                    size= 30,
                                     font_family= "Times New Roman",
                                     weight= "bold",
                                     color="#EE4540"
                                 ),
-                                margin=ft.margin.only(left=50, right=50),
-                                padding=10,
+                                margin=ft.margin.only(left=50, right=50, bottom=5),
+                                #padding=10,
                             ),
-                                              
+                            ft.Container(
+                                content=ft.Text(
+                                    value="Rolle",
+                                    size= 20,
+                                    font_family= "Times New Roman",
+                                    #weight= "bold",
+                                    color="#EE4540"
+                                ),
+                                margin=ft.margin.only(left=50, right=50),
+                                #padding=10,
+                            ),              
                         ],
-                        #alignment = ft.MainAxisAlignment.CENTER,
+                        alignment = ft.MainAxisAlignment.CENTER,
                         horizontal_alignment= ft.CrossAxisAlignment.CENTER
                     ),
                     height=600,
-                    #alignment=ft.alignment.center,
+                    alignment=ft.alignment.center,
                 ),
             ]
         ),
         
 
         # ------ HEADER ------
-        ft.Column(
-            controls=[
-                ft.Container(),
+        ft.Container(
+            content=
                 ft.Row(
                     controls=[
                             ft.Container(
                                 content=ft.IconButton(
                                     ft.Icons.ARROW_BACK,
                                     icon_color="#EE4540",
-                                    on_click=lambda _: self.page.go("/vote")
+                                    hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                    highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                    on_click=lambda _: self.page.go("/"),  
                                 ),
                             ),
  
@@ -107,9 +112,29 @@ class voting_result(ft.UserControl):
                                 ),
                             )
                     ],
-                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                    alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
-            ]
+            margin=10
+        ),
+
+        ft.Container(
+            ft.ElevatedButton(
+                text="Zurück zum Home",
+                style=ft.ButtonStyle(
+                    color="#EE4540",
+                    bgcolor="#510A32",
+                    text_style=ft.TextStyle(
+                        font_family= "Times New Roman",
+                        color="#EE4540",
+                        size=20
+                    ),
+                    overlay_color="#801336",
+                ),
+                width=200,
+                on_click=lambda e: self.page.go("/")
+            ),
+            alignment=ft.alignment.center,
+            margin=ft.margin.only(top=550)
         )
         
         ])

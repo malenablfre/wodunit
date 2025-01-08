@@ -7,14 +7,34 @@ class voting_room(ft.UserControl):
 
         self.names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
         self.suspects = []
+        self.main_suspect = ""
 
         self.name_column = ft.Column(controls=[self.create_name_item(name) for name in self.names])
 
-        self.suspect_column = ft.Column(controls=[self.create_suspect_item(name) for name in self.suspects])
-
         self.all_players = "15"
         self.active_players = len(self.names)
-        
+
+        self.button_start_voting = ft.ElevatedButton(
+            text="Jetzt voten!",
+            style=ft.ButtonStyle(
+                color="#EE4540",
+                bgcolor="#510A32",
+                text_style=ft.TextStyle(
+                    font_family= "Times New Roman",
+                    color="#EE4540",
+                    size=20
+                ),
+                overlay_color="#801336",
+            ),
+            width=200,
+            # on_click=self.show_dialog
+            disabled=True
+        )
+
+        self.button_start_voting.on_click = self.show_dialog
+
+
+
     def build(self):
         page = ft.Stack([
         # ------ BACKGROUND ------
@@ -38,7 +58,7 @@ class voting_room(ft.UserControl):
                         spacing=0,
                         scroll=ft.ScrollMode.HIDDEN,
                         controls=[
-                            ft.Container(),
+                            # ft.Container(),
                             ft.Container(
                                 content=ft.Text(
                                     value=f"({self.active_players}/{self.all_players} aktiv)",
@@ -78,43 +98,28 @@ class voting_room(ft.UserControl):
                                 ),
                                 margin=ft.margin.only(top=10, bottom=20)
                             ),
-                            ft.ElevatedButton(
-                                text="Jetzt voten!",
-                                style=ft.ButtonStyle(
-                                    color="#EE4540",
-                                    bgcolor="#510A32",
-                                    text_style=ft.TextStyle(
-                                        font_family= "Times New Roman",
-                                        color="#EE4540",
-                                        size=20
-                                    ),
-                                    overlay_color="#801336",
-                                ),
-                                width=200,
-                                on_click=self.show_dialog
-                            )                    
+                            self.button_start_voting                    
                         ],
-                        #alignment = ft.MainAxisAlignment.CENTER,
                         horizontal_alignment= ft.CrossAxisAlignment.CENTER
                     ),
                     height=600,
-                    #alignment=ft.alignment.center,
                 ),
             ]
         ),
         
 
         # ------ HEADER ------
-        ft.Column(
-            controls=[
-                ft.Container(),
+        ft.Container(
+            content=
                 ft.Row(
                     controls=[
                             ft.Container(
                                 content=ft.IconButton(
                                     ft.Icons.ARROW_BACK,
                                     icon_color="#EE4540",
-                                    on_click=lambda _: self.page.go("/")
+                                    hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                    highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                    on_click=lambda _: self.page.go("/"),  
                                 ),
                             ),
  
@@ -142,14 +147,16 @@ class voting_room(ft.UserControl):
                                 ),
                             )
                     ],
-                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                    alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
-            ]
+            margin=10
         )
         
         ])
         return page
     
+
+    # ------ choosing suspects ------
     def create_name_item(self, name):
         text = ft.Text(name, weight=ft.FontWeight.NORMAL, font_family= "Times New Roman", color= "#C72C42", size=20)
         container = ft.Container(content=text, on_click=lambda e: self.toggle_bold(e, text))
@@ -159,33 +166,45 @@ class voting_room(ft.UserControl):
         if text.weight == ft.FontWeight.NORMAL:
             text.weight = ft.FontWeight.BOLD
             self.suspects.append(text.value)
-            print(self.suspects)
         else:
             text.weight = ft.FontWeight.NORMAL
             self.suspects.remove(text.value)
-            print(self.suspects)
+        
+        if len(self.suspects) > 0:
+            self.button_start_voting.disabled = False
+        else: 
+            self.button_start_voting.disabled = True
         text.update()
+        self.update()
 
 
-
+    # ------ choosing the vote ------
     def create_suspect_item(self, name):
-        text = ft.Text(name, weight=ft.FontWeight.NORMAL, font_family= "Times New Roman", color= "#C72C42", size=15)
+        text = ft.Text(name, weight=ft.FontWeight.NORMAL, font_family= "Times New Roman", color= "#C72C42", size=20)
         container = ft.Container(content=text, on_click=lambda e: self.toggle_vote(e, text))
         return container
     
     def toggle_vote(self, e, text):
         if text.weight == ft.FontWeight.NORMAL:
+            for control in self.suspect_column.controls:
+                control.content.weight = ft.FontWeight.NORMAL
+                control.content.update()
             text.weight = ft.FontWeight.BOLD
-            # self.suspects.append(text.value)
-            # print(self.suspects)
+            self.main_suspect = text.value
         else:
             text.weight = ft.FontWeight.NORMAL
-            # self.suspects.remove(text.value)
-            # print(self.suspects)
+            self.main_suspect = ""
         text.update()
+        # self.update()
 
 
+    # ------ VOTING DIALOGUE ------
     def show_dialog(self, e):
+        self.suspect_column = ft.Column(
+            scroll=ft.ScrollMode.HIDDEN,
+            height= 100,
+            controls=[self.create_suspect_item(name) for name in self.suspects]
+        )
         dialog = ft.AlertDialog(
             title=ft.Text("Wer ist der Mörder?", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
             content=ft.Container(
@@ -194,14 +213,15 @@ class voting_room(ft.UserControl):
             bgcolor="#801336",
             actions=[
                 ft.TextButton(
-                    text="Vote",
+                    text="Stimme abgeben",
                     on_click=self.close_dialog,
+                    #disabled= True,
                     style=ft.ButtonStyle(
                         text_style=ft.TextStyle(
                             font_family="Times New Roman",
                             color="#EE4540", size=20
                         ),
-                        overlay_color="#EE4540"
+                        overlay_color= ft.Colors.with_opacity(0.1, "#EE4540")
                     )
                 ),
             ],
@@ -214,5 +234,6 @@ class voting_room(ft.UserControl):
 
     def close_dialog(self, e):
         self.page.dialog.open = False
+        print(self.main_suspect)
         self.page.go("/vote_result")
         self.page.update()
