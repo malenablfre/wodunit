@@ -183,19 +183,54 @@ class spielregeln(ft.UserControl):
         ]), 
 
 
-            ft.Column(
-                controls=[
-                    ft.Container(),
-                    ft.Row(
-                        controls=[
-                            ft.Container(content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/uebersicht")),),
-                            ft.Container(content=ft.Text(value="Die 13 Gebote", size= 35, font_family= "Times New Roman", weight= "bold", color="#EE4540"),),
-                            ft.Container(content=ft.IconButton(ft.Icons.MENU, icon_color="#EE4540", on_click=lambda _: self.page.go("/uebersicht")),),
-                        ],
-                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                    )
-                ]
-            )
+        # ----- HEADER -----
+        ft.Column(
+            controls=[
+                ft.Container(
+                    content=
+                        ft.Row(
+                            controls=[
+                                    ft.Container(
+                                        content=ft.IconButton(
+                                            ft.Icons.ARROW_BACK,
+                                            icon_color="#EE4540",
+                                            hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                            highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                            on_click=lambda _: self.page.go("/"),  
+                                        ),
+                                    ),
+        
+                                    ft.Container(
+                                        content=ft.Text(
+                                            value="Spielregeln",
+                                            size= 30,
+                                            font_family= "Times New Roman",
+                                            weight= "bold",
+                                            color="#EE4540"
+                                        ),
+                                    ),
+        
+                                    # ------ SIDE MENU ------
+                                    ft.Container(
+                                        content=ft.PopupMenuButton(
+                                            icon=ft.Icons.MENU_SHARP,
+                                            icon_color="#EE4540",
+                                            bgcolor="#C72C42",
+                                            items=[
+                                                ft.PopupMenuItem(text="Startseite", on_click=lambda _: self.page.go("/")),
+                                                ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/home")),
+                                                ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/rollenuebersicht"))
+                                            ]
+                                        ),
+                                    )
+                            ],
+                            alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
+                        ),
+                    margin=10,
+                    #alignment=ft.alignment.top_center
+                ),
+            ]
+        ),
     ])
             
 
