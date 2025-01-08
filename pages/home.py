@@ -1,7 +1,7 @@
 import flet as ft
 
 class home(ft.UserControl):
-    def __init__(self, page):
+    def __init__(self, page: ft.Page):
         super().__init__()
         self.page = page
 
@@ -71,6 +71,10 @@ class home(ft.UserControl):
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
             alignment=ft.alignment.center
+            ),
+            ft.Container(
+                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda e: self.page.go("/signup")),
+                alignment=ft.alignment.top_left
             )
         
         page = ft.Stack(
