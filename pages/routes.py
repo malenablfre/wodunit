@@ -1,12 +1,12 @@
 import flet as ft
-from pages.home import home
+from pages.startseite import startseite
 from pages.login import login
 from pages.signup import signup
 from pages.gameslots import gameslots
 from pages.uebersicht import uebersicht 
 from pages.rollenuebersicht import rollenuebersicht
 from pages.spielregeln import spielregeln
-from pages.gamemenu import gamemenu
+from pages.home import home
 from pages.emergencycalled import emergencycalled
 from pages.emergencyblocked import emergencyblocked
 
@@ -16,7 +16,7 @@ def views_handler(page):
         '/':ft.View(
             route='/',
             controls=[
-                home(page) #neuer name: "startseite"
+                startseite(page) #neuer name (vorher "home")
             ]
         ),
         '/login':ft.View(
@@ -55,10 +55,10 @@ def views_handler(page):
                 spielregeln(page)
             ]
         ),
-        '/gamemenu':ft.View(
-            route='/gamemenu',
+        '/home':ft.View(
+            route='/home',
             controls=[
-                gamemenu(page) #neuer name: "home"
+                home(page) #neuer name (vorher "gamemenu")
             ]
         ),
         '/emergencycalled':ft.View(

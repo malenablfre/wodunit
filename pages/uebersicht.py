@@ -6,68 +6,129 @@ class uebersicht(ft.UserControl):
         self.page = page
 
     def build(self):
-        page = ft.Container(
+        page = ft.Stack(
+            controls=[
+                ft.Container(
+                    width=400,
+                    height=700,
+                    gradient=ft.LinearGradient(
+                        begin=ft.alignment.top_center,
+                        end=ft.alignment.bottom_center,
+                        colors=["#2D142C","#510A32"]),
+                    border_radius=10,
+                    alignment=ft.alignment.center
+                ),
+
                 ft.Column(
-                spacing=0,
-                controls=[
-                    ft.Container(
-                        content=ft.Text(value="Übersicht", size= 50, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
-                        margin=10,
-                        padding=10,
-                    ),
+                    controls=[
+                        ft.Container(height=50),
+                        ft.Container(
+                            ft.Column(
+                                spacing=0,
+                                scroll=ft.ScrollMode.HIDDEN,
+                                controls=[
+                                    ft.Container(),
+                                    # ----- ZWEIE ÜBERSCHRIFT -----
+                                    ft.Container(
+                                        content=ft.Text(value="Übersicht", size= 30, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                                        margin=0,
+                                        alignment=ft.alignment.center
+                                    ),
 
-                    ft.Container(
-                        content=ft.Text(value="Rollenübersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
-                        width=250,
-                        height=50,
-                        border_radius=10,
-                        ink = True, 
-                        on_click=lambda _: self.page.go("/rollenuebersicht")
-                    ),
+                                    # ----- BUTTONS -----
+                                    ft.Container(
+                                        content=ft.ElevatedButton(
+                                            text="Rollenübersicht", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda _: self.page.go("/rollenuebersicht")
+                                        ),
+                                        margin=10
+                                    ),
 
-                    ft.Container(
-                        content=ft.Text(value="Spielregeln", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
-                        width=250,
-                        height=50,
-                        border_radius=10,
-                        ink= True ,
-                        ink_color=ft.colors.RED_900,
-                        on_click=lambda _: self.page.go("/spielregeln")
-                    ),
-                    ft.Container(
-                        content=ft.Text(value="↩", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        padding=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
-                        width=250,
-                        height=50,
-                        border_radius=10,
-                        ink= True ,
-                        ink_color=ft.colors.RED_900,
-                        on_click=lambda _: self.page.go("/")
-                    ),
+                                    ft.Container(
+                                        content=ft.ElevatedButton(
+                                            text="Spielregeln", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda _: self.page.go("/spielregeln")
+                                        ),
+                                        margin=10
+                                    ),  
+                                ],
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER
+                            ),
+                            height=600,
+                            alignment=ft.alignment.center,
+                        )
+                    ],
+                ),
 
-                ],
-                alignment = ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            ),
-            width=400,
-            height=700,
-            gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
-                colors=["#2D142C","#510A32"]),
-            border_radius=10,
-            alignment=ft.alignment.center
+                # ----- HEADER -----
+                ft.Column(
+                    controls=[
+                        ft.Container(
+                            content=
+                                ft.Row(
+                                    controls=[
+                                            ft.Container(
+                                                content=ft.IconButton(
+                                                    ft.Icons.ARROW_BACK,
+                                                    icon_color="#EE4540",
+                                                    hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                                    highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                                    on_click=lambda _: self.page.go("/"),  
+                                                ),
+                                            ),
+                
+                                            ft.Container(
+                                                content=ft.Text(
+                                                    value="Übersicht",
+                                                    size= 30,
+                                                    font_family= "Times New Roman",
+                                                    weight= "bold",
+                                                    color="#EE4540"
+                                                ),
+                                            ),
+                
+                                            # ------ SIDE MENU ------
+                                            ft.Container(
+                                                content=ft.PopupMenuButton(
+                                                    icon=ft.Icons.MENU_SHARP,
+                                                    icon_color="#EE4540",
+                                                    bgcolor="#C72C42",
+                                                    items=[
+                                                        ft.PopupMenuItem(text="Startseite", on_click=lambda _: self.page.go("/")),
+                                                        ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/rollenuebersicht")),
+                                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/spielregeln"))
+                                                    ]
+                                                ),
+                                            )
+                                    ],
+                                    alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
+                                ),
+                            margin=10,
+                            #alignment=ft.alignment.top_center
+                        ),
+                    ]
+                ),
+            ]
         )
         
         return page

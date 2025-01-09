@@ -37,10 +37,17 @@ class emergencyblocked(ft.UserControl):
             ft.Column(
                 controls=[
                     ft.Container(),
+                    # ----- HEADER -----
                     ft.Row(
                         controls=[
                                 ft.Container(
-                                    content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#2D142C",hover_color= '#6f102f',splash_color= '#6f102f', highlight_color= '#6f102f', on_click=lambda _: self.page.go("/")),
+                                    content=ft.IconButton(
+                                        ft.Icons.ARROW_BACK,
+                                        icon_color="#EE4540",
+                                        hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                        highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                        on_click=lambda _: self.page.go("/")
+                                        ),
                                 ),
 
                                 ft.Container(
@@ -58,7 +65,8 @@ class emergencyblocked(ft.UserControl):
 
 
                                         items=[
-                                            ft.PopupMenuItem(text="Home" ,on_click=lambda _: self.page.go("/")), #neuer name "startseite"
+                                            ft.PopupMenuItem(text="Startseite" ,on_click=lambda _: self.page.go("/")),
+                                            ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/home")),
                                             ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/rollenuebersicht")),
                                             ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/spielregeln"))
                                         ]
