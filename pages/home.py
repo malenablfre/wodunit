@@ -52,7 +52,7 @@ class home(ft.UserControl):
                                             on_click=lambda _: self.page.go("/"),  
                                         ),
                                     ),
-        
+
                                     ft.Container(
                                         content=ft.Text(
                                             value="Slot 1",
@@ -81,6 +81,7 @@ class home(ft.UserControl):
                         ),
                     margin=10
                 ),
+                # ---- UNTER-ÜBERSCHRIFT -----
                 ft.Container(
                     content=ft.Text(value=f"Runde läuft seit {days} Tagen", size= 15, font_family= "Times New Roman", weight= "bold", color="#801336"), #oder #EE4540
                     margin=0,
@@ -92,51 +93,74 @@ class home(ft.UserControl):
         body_container = ft.Column(
             spacing=0,
             controls=[
+                # ----- CLICKABLE PIE CHART -----
                 ft.Container(
-                        content=ft.PieChart(
-                            sections=[
-                                ft.PieChartSection(alive, title="Lebende", title_style=ft.TextStyle(size=12), color="#C72C42", radius=80),
-                                ft.PieChartSection(dead, title="Tote", title_style=ft.TextStyle(size=12), color="#EE4540", radius=80)
-                            ],
-                            sections_space=1,
-                            center_space_radius=0
-                        ),
-                        margin=-40,
-                        on_click=lambda _: self.page.go("/")
+                    content=ft.PieChart(
+                        sections=[
+                            ft.PieChartSection(alive, title="Lebende", title_style=ft.TextStyle(size=12), color="#C72C42", radius=80),
+                            ft.PieChartSection(dead, title="Tote", title_style=ft.TextStyle(size=12), color="#EE4540", radius=80)
+                        ],
+                        sections_space=1,
+                        center_space_radius=0
                     ),
+                    margin=-40,
+                    on_click=lambda _: self.page.go("/")
+                ),
 
-                    ft.Container(
-                        content=ft.Text(value="Meine Rolle", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
+                # ----- BUTTONS -----
+                ft.Container(
+                    content=ft.ElevatedButton(
+                        text="Meine Rolle", 
+                        style=ft.ButtonStyle(
+                            alignment=ft.alignment.center,
+                            shape=ft.RoundedRectangleBorder(radius=10),
+                            color="#EE4540", #text color
+                            bgcolor="#510A32", 
+                            text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                            overlay_color="#801336" #on hover
+                        ),
                         width=250,
                         height=50,
-                        border_radius=10,
                         on_click=self.show_dialog #öffnet Pop-Up-Fenster mit Safety Check
                     ),
+                    margin=10
+                ),
 
-                    ft.Container(
-                        content=ft.Text(value="Voting", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
+                ft.Container(
+                    content=ft.ElevatedButton(
+                        text="Voting", 
+                        style=ft.ButtonStyle(
+                            alignment=ft.alignment.center,
+                            shape=ft.RoundedRectangleBorder(radius=10),
+                            color="#EE4540", 
+                            bgcolor="#510A32", 
+                            text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                            overlay_color="#801336"
+                        ),
                         width=250,
                         height=50,
-                        border_radius=10,
                         on_click=lambda _: self.page.go("/")
                     ),
+                    margin=10
+                ),
 
-                    ft.Container(
-                        content=ft.Text(value="Emergency", size= 20, font_family= "Times New Roman", weight= "bold", color="#510A32"),
-                        margin=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#C72C42",
+                ft.Container(
+                    content=ft.ElevatedButton(
+                        text="Emergency", 
+                        style=ft.ButtonStyle(
+                            alignment=ft.alignment.center,
+                            shape=ft.RoundedRectangleBorder(radius=10),
+                            color="#510A32", #text color
+                            bgcolor="#C72C42",
+                            text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                            overlay_color="#EE4540" #on hover
+                        ),
                         width=250,
                         height=50,
-                        border_radius=10,
                         on_click=lambda _: self.page.go("/emergencycalled")
-                    )
+                    ),
+                    margin=10
+                )
             ],
             alignment = ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER

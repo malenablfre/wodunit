@@ -9,16 +9,18 @@ class startseite(ft.UserControl):
         head_container = ft.Column(
             spacing=0,
             controls=[
+                # ----- ÜBERSCHRIFT -----
                 ft.Container(
                         content=ft.Text(value="Whodunit?", size= 55, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                         alignment=ft.alignment.center,
                     ),
 
-                    ft.Container(
-                        content=ft.Text(value="Das Spiel des Mörders", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                        margin=0,
-                        alignment=ft.alignment.center,
-                    )
+                # ----- UNTER-ÜBERSCHRIFT -----
+                ft.Container(
+                    content=ft.Text(value="Das Spiel des Mörders", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
+                    margin=0,
+                    alignment=ft.alignment.center,
+                )
             ],
             alignment = ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER
@@ -27,27 +29,42 @@ class startseite(ft.UserControl):
         body_container = ft.Column(
             spacing=0,
             controls=[
+                # ----- BUTTONS -----
                 ft.Container(
-                        content=ft.Text(value="Deine Spiele", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
+                    content=ft.ElevatedButton(
+                        text="Deine Spiele", 
+                        style=ft.ButtonStyle(
+                            alignment=ft.alignment.center,
+                            shape=ft.RoundedRectangleBorder(radius=10),
+                            color="#EE4540", 
+                            bgcolor="#510A32", 
+                            text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                            overlay_color="#801336"
+                        ),
                         width=250,
                         height=50,
-                        border_radius=10,
                         on_click=lambda _: self.page.go("/gameslots")
                     ),
+                    margin=10
+                ),
 
-                    ft.Container(
-                        content=ft.Text(value="Übersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                        margin=10,
-                        alignment=ft.alignment.center,
-                        bgcolor="#510A32",
+                ft.Container(
+                    content=ft.ElevatedButton(
+                        text="Übersicht", 
+                        style=ft.ButtonStyle(
+                            alignment=ft.alignment.center,
+                            shape=ft.RoundedRectangleBorder(radius=10),
+                            color="#EE4540", 
+                            bgcolor="#510A32", 
+                            text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                            overlay_color="#801336"
+                        ),
                         width=250,
                         height=50,
-                        border_radius=10,
                         on_click=lambda _: self.page.go("/uebersicht")
-                    )
+                    ),
+                    margin=10
+                )
             ],
             alignment = ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER

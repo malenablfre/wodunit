@@ -15,7 +15,7 @@ class Main(ft.UserControl):
         self.page.spacing = 0
 
         self.page.on_route_change = self.route_change
-        self.page.go('/signup') #/signup
+        self.page.go('/signup')
     
     def route_change(self, route):
         print(self.page.route)

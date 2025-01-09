@@ -37,37 +37,58 @@ class gameslots(ft.UserControl):
 
                                     # ----- SPIELSLOTS -----
                                     ft.Container(
-                                        content=ft.Text(value="Slot 1", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                                        margin=10,
-                                        alignment=ft.alignment.center,
-                                        bgcolor="#510A32",
-                                        width=250,
-                                        height=50,
-                                        border_radius=10,
-                                        on_click=lambda _: self.page.go("/home")
+                                        content=ft.ElevatedButton(
+                                            text="Slot 1", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda e: self.page.go("/home")
+                                        ),
+                                        margin=10
                                     ),
 
                                     ft.Container(
-                                        content=ft.Text(value="Slot 2", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                                        margin=10,
-                                        alignment=ft.alignment.center,
-                                        bgcolor="#510A32",
-                                        width=250,
-                                        height=50,
-                                        border_radius=10,
-                                        on_click=lambda _: self.page.go("/home")
+                                        content=ft.ElevatedButton(
+                                            text="Slot 2", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda e: self.page.go("/home")
+                                        ),
+                                        margin=10
                                     ),
 
                                     ft.Container(
-                                        content=ft.Text(value="Slot 3", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                                        margin=10,
-                                        alignment=ft.alignment.center,
-                                        bgcolor="#510A32",
-                                        width=250,
-                                        height=50,
-                                        border_radius=10,
-                                        on_click=lambda _: self.page.go("/home")
-                                    ),
+                                        content=ft.ElevatedButton(
+                                            text="Slot 3", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda e: self.page.go("/home")
+                                        ),
+                                        margin=10
+                                    )
                                     
                                 ],
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER

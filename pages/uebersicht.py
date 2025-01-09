@@ -37,32 +37,40 @@ class uebersicht(ft.UserControl):
 
                                     # ----- BUTTONS -----
                                     ft.Container(
-                                        content=ft.Text(value="Rollenübersicht", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                                        margin=10,
-                                        padding=10,
-                                        alignment=ft.alignment.center,
-                                        bgcolor="#510A32",
-                                        width=250,
-                                        height=50,
-                                        border_radius=10,
-                                        ink = True, 
-                                        on_click=lambda _: self.page.go("/rollenuebersicht")
+                                        content=ft.ElevatedButton(
+                                            text="Rollenübersicht", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda _: self.page.go("/rollenuebersicht")
+                                        ),
+                                        margin=10
                                     ),
 
                                     ft.Container(
-                                        content=ft.Text(value="Spielregeln", size= 20, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                                        margin=10,
-                                        padding=10,
-                                        alignment=ft.alignment.center,
-                                        bgcolor="#510A32",
-                                        width=250,
-                                        height=50,
-                                        border_radius=10,
-                                        ink= True ,
-                                        ink_color=ft.colors.RED_900,
-                                        on_click=lambda _: self.page.go("/spielregeln")
-                                    ),
-                                    
+                                        content=ft.ElevatedButton(
+                                            text="Spielregeln", 
+                                            style=ft.ButtonStyle(
+                                                alignment=ft.alignment.center,
+                                                shape=ft.RoundedRectangleBorder(radius=10),
+                                                color="#EE4540", 
+                                                bgcolor="#510A32", 
+                                                text_style=ft.TextStyle(size= 20, font_family= "Times New Roman", weight= "bold"), 
+                                                overlay_color="#801336"
+                                            ),
+                                            width=250,
+                                            height=50,
+                                            on_click=lambda _: self.page.go("/spielregeln")
+                                        ),
+                                        margin=10
+                                    ),  
                                 ],
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER
                             ),
