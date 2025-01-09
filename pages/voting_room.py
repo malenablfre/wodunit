@@ -1,11 +1,12 @@
 import flet as ft
+from pages.extras import extras
 
 class voting_room(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
 
-        self.names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
+        self.names = ["Malena", "Anna-Lena", "Jasmin", "Anna-Lotta"]
         self.suspects = []
         self.main_suspect = ""
 
@@ -27,7 +28,6 @@ class voting_room(ft.UserControl):
                 overlay_color="#801336",
             ),
             width=200,
-            # on_click=self.show_dialog
             disabled=True
         )
 
@@ -50,61 +50,55 @@ class voting_room(ft.UserControl):
             ),
         
         # ------ CONTENT ------
-        ft.Column(
-            controls=[
-                ft.Container(height=50),
-                ft.Container(
-                    ft.Column(
-                        spacing=0,
-                        scroll=ft.ScrollMode.HIDDEN,
-                        controls=[
-                            # ft.Container(),
-                            ft.Container(
-                                content=ft.Text(
-                                    value=f"({self.active_players}/{self.all_players} aktiv)",
-                                    size=15,
-                                    font_family="Times New Roman",
-                                    color="#EE4540"
-                                ),
-                                margin=ft.margin.only(left=260, top=25),
-                                width=200,
-
-                            ),
-                            ft.Container(
-                                content=ft.Text(
-                                    value="Alle Teilnehmer",
-                                    size= 25,
-                                    font_family= "Times New Roman",
-                                    weight= "bold",
-                                    color="#EE4540"
-                                ),
-                                margin=ft.margin.only(left=50, right=50),
-                                padding=10,
-                            ),
-                            ft.Container(
-                                content=self.name_column,
-                                bgcolor=ft.colors.TRANSPARENT,
-                                border=ft.border.all(width=1, color="#C72C42"),
-                                border_radius=10,
-                                padding=ft.padding.only(left=20, top=10, bottom=10),
-                                width=300
-                            ),
-                            ft.Container(
-                                content=ft.Text(
-                                    value="(Tippe auf die Verdächtigen)",
-                                    size=10,
-                                    font_family= "Times New Roman",
-                                    color= "#EE4540"
-                                ),
-                                margin=ft.margin.only(top=10, bottom=20)
-                            ),
-                            self.button_start_voting                    
-                        ],
-                        horizontal_alignment= ft.CrossAxisAlignment.CENTER
+        ft.Container(
+            ft.Column(
+                spacing=0,
+                scroll=ft.ScrollMode.HIDDEN,
+                controls=[
+                    ft.Container(
+                        content=ft.Text(
+                            value=f"({self.active_players}/{self.all_players} aktiv)",
+                            size=15,
+                            font_family="Times New Roman",
+                            color="#EE4540"
+                        ),
+                        margin=ft.margin.only(left=260, top=25),
+                        width=200,
                     ),
-                    height=600,
-                ),
-            ]
+                    ft.Container(
+                        content=ft.Text(
+                            value="Alle Teilnehmer",
+                            size= 25,
+                            font_family= "Times New Roman",
+                            weight= "bold",
+                            color="#EE4540"
+                        ),
+                        margin=ft.margin.only(left=50, right=50),
+                        padding=10,
+                    ),
+                    ft.Container(
+                        content=self.name_column,
+                        bgcolor=ft.colors.TRANSPARENT,
+                        border=ft.border.all(width=1, color="#C72C42"),
+                        border_radius=10,
+                        padding=ft.padding.only(left=20, top=10, bottom=10),
+                        width=300
+                    ),
+                    ft.Container(
+                        content=ft.Text(
+                            value="(Tippe auf die Verdächtigen)",
+                            size=10,
+                            font_family= "Times New Roman",
+                            color= "#EE4540"
+                        ),
+                        margin=ft.margin.only(top=10, bottom=20)
+                    ),
+                    self.button_start_voting                    
+                ],
+                horizontal_alignment= ft.CrossAxisAlignment.CENTER
+            ),
+            height=600,
+            margin=ft.margin.only(top=50)
         ),
         
 
@@ -178,7 +172,7 @@ class voting_room(ft.UserControl):
         self.update()
 
 
-    # ------ choosing the vote ------
+    # ------ choosing your vote ------
     def create_suspect_item(self, name):
         text = ft.Text(name, weight=ft.FontWeight.NORMAL, font_family= "Times New Roman", color= "#C72C42", size=20)
         container = ft.Container(content=text, on_click=lambda e: self.toggle_vote(e, text))
@@ -195,7 +189,7 @@ class voting_room(ft.UserControl):
             text.weight = ft.FontWeight.NORMAL
             self.main_suspect = ""
         text.update()
-        # self.update()
+        self.update()
 
 
     # ------ VOTING DIALOGUE ------

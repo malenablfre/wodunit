@@ -1,10 +1,13 @@
 import flet as ft
-from pages import voting_room as vote
+from pages.voting_room import voting_room
 
 class voting_result(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+
+        vote_name = voting_room(page)
+        self.name = vote_name.main_suspect # funktioniert noch nicht richtig (übernimmt nur leeren str aus init)
         
     def build(self):
         page = ft.Stack([
@@ -21,9 +24,8 @@ class voting_result(ft.UserControl):
             ),
         
         # ------ CONTENT ------
-        ft.Column(
-            controls=[
-                # ft.Container(height=50),
+        # ft.Column(
+        #     controls=[
                 ft.Container(
                     ft.Column(
                         spacing=0,
@@ -34,33 +36,28 @@ class voting_result(ft.UserControl):
                                     value="Ihr habt rausgevotet:",
                                     size= 25,
                                     font_family= "Times New Roman",
-                                    #weight= "bold",
                                     color="#EE4540"
                                 ),
                                 margin=ft.margin.only(left=50, right=50, bottom=10),
-                                #padding=10,
                             ), 
                             ft.Container(
                                 content=ft.Text(
-                                    value='"Name"',
+                                    value=self.name,
                                     size= 30,
                                     font_family= "Times New Roman",
                                     weight= "bold",
                                     color="#EE4540"
                                 ),
                                 margin=ft.margin.only(left=50, right=50, bottom=5),
-                                #padding=10,
                             ),
                             ft.Container(
                                 content=ft.Text(
-                                    value="Rolle",
+                                    value='"Rolle"',
                                     size= 20,
                                     font_family= "Times New Roman",
-                                    #weight= "bold",
                                     color="#EE4540"
                                 ),
                                 margin=ft.margin.only(left=50, right=50),
-                                #padding=10,
                             ),              
                         ],
                         alignment = ft.MainAxisAlignment.CENTER,
@@ -69,8 +66,8 @@ class voting_result(ft.UserControl):
                     height=600,
                     alignment=ft.alignment.center,
                 ),
-            ]
-        ),
+        #     ]
+        # ),
         
 
         # ------ HEADER ------
