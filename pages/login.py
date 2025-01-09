@@ -5,49 +5,49 @@ class login(ft.UserControl):
         super().__init__()
         self.page = page
         self.text_username: ft.TextField = ft.TextField(label='Benutzername',
-                                            label_style=ft.TextStyle(
-                                                font_family= "Times New Roman",
-                                                color="#EE4540"
-                                            ),
-                                            text_style=ft.TextStyle(
-                                                font_family= "Times New Roman",
-                                                color="#EE4540"
-                                            ),
-                                            text_align=ft.TextAlign.LEFT,
-                                            width=200,
-                                            border_color="#510A32",
-                                            border_radius=10,
-                                            cursor_color="#EE4540"
-                                            )
+            label_style=ft.TextStyle(
+                font_family= "Times New Roman",
+                color="#EE4540"
+            ),
+            text_style=ft.TextStyle(
+                font_family= "Times New Roman",
+                color="#EE4540"
+            ),
+            text_align=ft.TextAlign.LEFT,
+            width=200,
+            border_color="#510A32",
+            border_radius=10,
+            cursor_color="#EE4540"
+            )
         self.text_password: ft.TextField = ft.TextField(label='Passwort',
-                                            label_style=ft.TextStyle(
-                                                font_family= "Times New Roman",
-                                                color="#EE4540"
-                                            ),
-                                            text_style=ft.TextStyle(
-                                                font_family= "Times New Roman",
-                                                color="#EE4540"
-                                            ),
-                                            text_align=ft.TextAlign.LEFT,
-                                            width=200,
-                                            border_color="#510A32",
-                                            border_radius=10,
-                                            cursor_color="#EE4540",
-                                            password=True,
-                                            )
+            label_style=ft.TextStyle(
+                font_family= "Times New Roman",
+                color="#EE4540"
+            ),
+            text_style=ft.TextStyle(
+                font_family= "Times New Roman",
+                color="#EE4540"
+            ),
+            text_align=ft.TextAlign.LEFT,
+            width=200,
+            border_color="#510A32",
+            border_radius=10,
+            cursor_color="#EE4540",
+            password=True,
+            )
         self.button_submit: ft.ElevatedButton = ft.ElevatedButton(text='Anmelden',
-                                                  style=ft.ButtonStyle(
-                                                      color="#EE4540",
-                                                      bgcolor="#510A32",
-                                                      text_style=ft.TextStyle(
-                                                          font_family= "Times New Roman",
-                                                        color="#EE4540"
-                                                      ),
-                                                      overlay_color="#801336",
-                                                  ),
-                                                  width=200,
-                                                  disabled=True
-                                                  )
+           style=ft.ButtonStyle(
+               color="#EE4540",
+               bgcolor="#510A32",
+               text_style=ft.TextStyle(
+                   font_family= "Times New Roman",
+                 color="#EE4540"
+               ),
+               overlay_color="#801336",
+           ),
+           width=200,
+           disabled=True
+           )
         
         self.text_username.on_change = self.validate
         self.text_password.on_change = self.validate
@@ -57,7 +57,7 @@ class login(ft.UserControl):
     def validate(self, e: ft.ControlEvent) -> None:
         special_characters = set("/!@#$%^&*(),.?\":|<>")
         password = self.text_password.value
-        # general validation
+        # validate if username exists and password is long enough
         if all([
             self.text_username.value and
             password and
@@ -67,7 +67,7 @@ class login(ft.UserControl):
             self.button_submit.disabled = False
         else:
             self.button_submit.disabled = True
-        # password validation
+        # output error messages for password
         if len(password) < 7 and len(password) != 0:
             self.text_password.error_text = "Passwort zu kurz"
         elif not any(char in special_characters for char in password) and len(password) != 0:
