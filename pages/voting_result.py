@@ -5,6 +5,7 @@ class voting_result(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+        self.expand = True
 
         vote_name = voting_room(page)
         self.name = vote_name.main_suspect # funktioniert noch nicht richtig (übernimmt nur leeren str aus init)
@@ -13,8 +14,8 @@ class voting_result(ft.UserControl):
         page = ft.Stack([
         # ------ BACKGROUND ------
         ft.Container(   
-            width=400,
-            height=700,
+            width=self.page.width,
+            height=self.page.height,
             gradient=ft.LinearGradient(
                 begin=ft.alignment.top_center,
                 end=ft.alignment.bottom_center,

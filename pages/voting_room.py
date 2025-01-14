@@ -1,10 +1,11 @@
 import flet as ft
-from pages.extras import extras
+# from pages.extras import extras
 
 class voting_room(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+        self.expand = True
 
         self.names = ["Malena", "Anna-Lena", "Jasmin", "Anna-Lotta"]
         self.suspects = []
@@ -33,20 +34,21 @@ class voting_room(ft.UserControl):
 
         self.button_start_voting.on_click = self.show_dialog
 
-
+    
 
     def build(self):
-        page = ft.Stack([
+        this_page = ft.Stack([
         # ------ BACKGROUND ------
         ft.Container(   
-            width=400,
-            height=700,
+            width=self.page.width, # 400,
+            height=self.page.height, # 700,
             gradient=ft.LinearGradient(
                 begin=ft.alignment.top_center,
                 end=ft.alignment.bottom_center,
                 colors=["#2D142C","#510A32"]),
             border_radius=10,
-            alignment=ft.alignment.center
+            alignment=ft.alignment.center,
+            # expand=True
             ),
         
         # ------ CONTENT ------
@@ -55,15 +57,20 @@ class voting_room(ft.UserControl):
                 spacing=0,
                 scroll=ft.ScrollMode.HIDDEN,
                 controls=[
-                    ft.Container(
-                        content=ft.Text(
-                            value=f"({self.active_players}/{self.all_players} aktiv)",
-                            size=15,
-                            font_family="Times New Roman",
-                            color="#EE4540"
-                        ),
-                        margin=ft.margin.only(left=260, top=25),
-                        width=200,
+                    ft.Row(
+                        controls=[
+                            ft.Container(
+                                content=ft.Text(
+                                    value=f"({self.active_players}/{self.all_players} aktiv)",
+                                    size=15,
+                                    font_family="Times New Roman",
+                                    color="#EE4540"
+                                ),
+                                margin=ft.margin.only(top=25)
+                            )
+                        ],
+                        width=300,
+                        alignment=ft.MainAxisAlignment.END
                     ),
                     ft.Container(
                         content=ft.Text(
@@ -98,7 +105,8 @@ class voting_room(ft.UserControl):
                 horizontal_alignment= ft.CrossAxisAlignment.CENTER
             ),
             height=600,
-            margin=ft.margin.only(top=50)
+            margin=ft.margin.only(top=50),
+            alignment=ft.alignment.top_center
         ),
         
 
@@ -147,7 +155,7 @@ class voting_room(ft.UserControl):
         )
         
         ])
-        return page
+        return this_page
     
 
     # ------ choosing suspects ------
@@ -228,6 +236,6 @@ class voting_room(ft.UserControl):
 
     def close_dialog(self, e):
         self.page.dialog.open = False
-        print(self.main_suspect)
+        print(self.main_suspect) # Votes müssen irgendwie gezählt werden
         self.page.go("/vote_result")
         self.page.update()

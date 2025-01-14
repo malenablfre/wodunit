@@ -4,6 +4,7 @@ class home(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+        self.expand = True
 
     def build(self):
         page = ft.Container(
@@ -60,8 +61,8 @@ class home(ft.UserControl):
                 ],
                 alignment = ft.MainAxisAlignment.CENTER,
             ),
-            width=400,
-            height=700,
+            width=self.page.width,
+            height=self.page.height,
             #bgcolor="#2D142C",
             #gradient=ft.RadialGradient(["#2D142C","#510A32"]),
             gradient=ft.LinearGradient(

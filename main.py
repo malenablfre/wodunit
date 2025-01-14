@@ -8,16 +8,17 @@ class Main(ft.UserControl):
         page.title = "Whodunit?"
         page.window.width = 400
         page.window.height = 700
-        page.window.resizable = False
+        # page.window.resizable = False
         page.vertical_alignment = ft.MainAxisAlignment.CENTER
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
+        self.page.padding = 0
         self.page.spacing = 0
 
         self.page.on_route_change = self.route_change
         self.page.go('/vote')
     
-    def route_change(self, route):
+    def route_change(self, e: ft.RouteChangeEvent):
         print(self.page.route)
         self.page.views.clear()
         self.page.views.append(
@@ -32,4 +33,4 @@ class Main(ft.UserControl):
 
 
 
-ft.app(target=Main)
+ft.app(target=Main, view=ft.AppView.WEB_BROWSER) # 
