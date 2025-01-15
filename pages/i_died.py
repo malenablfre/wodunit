@@ -4,6 +4,7 @@ class dead(ft.UserControl):
     def __init__(self, page):
         super().__init__()
         self.page = page
+        self.expand = True
 
         self.place_of_death: ft.TextField = ft.TextField(
             autofocus= True,
@@ -41,68 +42,66 @@ class dead(ft.UserControl):
 
     def build(self):
         page = ft.Stack([
-        ft.Container(   
-            width=400,
-            height=700,
-            gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
-                colors=["#2D142C","#510A32"]),
-            border_radius=10,
-            alignment=ft.alignment.center
+            # ------ BACKGROUND ------
+            ft.Container(   
+                width=self.page.width,
+                height=self.page.height,
+                gradient=ft.LinearGradient(
+                    begin=ft.alignment.top_center,
+                    end=ft.alignment.bottom_center,
+                    colors=["#2D142C","#510A32"]),
+                border_radius=10,
+                alignment=ft.alignment.center
+                ),
+            
+            # ------ CONTENT ------
+            ft.Column(
+                controls=[
+                    ft.Container(),
+                    ft.Container(
+                        content=ft.Text(value="Wo bist du gestorben?", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                    ),
+                    ft.Container(
+                        content=self.place_of_death
+                    ),
+                    ft.Container(
+                        content=self.submit_button
+                    )
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER
             ),
-        
-        ft.Column(
-            controls=[
-                ft.Container(height=250),
-                ft.Container(
-                    content=ft.Text(value="Wo bist du gestorben?", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
-                        #margin=ft.margin.only(left=50, right=50),
-                        padding=10,
-                ),
-                ft.Container(
-                    content=self.place_of_death
-                ),
-                ft.Container(
-                    content=self.submit_button
-                )
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER
-        ),
 
-        ft.Column(
-            controls=[
-                ft.Container(),
-                ft.Row(
+            # ------ HEADER ------
+            ft.Container(
+                content=ft.Row(
                     controls=[
-                            ft.Container(
-                                content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/role")),
+                        ft.Container(
+                            content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/role")),
+                        ),
+
+                        ft.Container(
+                            content=ft.Text(value="Todesort", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                        ),
+
+                        # ------ SIDE MENU -------
+                        ft.Container(
+                            content=ft.PopupMenuButton(
+                                icon=ft.Icons.MENU_SHARP,
+                                icon_color="#EE4540",
+                                bgcolor="#C72C42",
+                                items=[
+                                    ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
+                                    ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/")),
+                                    ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
+                                ]
                             ),
- 
-                            ft.Container(
-                                content=ft.Text(value="Todesort", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
-                            ),
- 
-                            # ------ SIDE MENU -------
-                            ft.Container(
-                                content=ft.PopupMenuButton(
-                                    icon=ft.Icons.MENU_SHARP,
-                                    icon_color="#EE4540",
-                                    bgcolor="#C72C42",
-                                    items=[
-                                        ft.PopupMenuItem(text="Home", on_click=lambda _: self.page.go("/")),
-                                        ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/")),
-                                        ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
-                                    ]
-                                ),
-                            )
+                        )
                     ],
-                    alignment = ft.MainAxisAlignment.SPACE_AROUND,
+                    alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
-            ]
-        )
-        
+                margin=10
+            )
         ])
         return page
     
