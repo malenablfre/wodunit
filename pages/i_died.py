@@ -17,12 +17,14 @@ class dead(ft.UserControl):
             height=50,
             border_radius=10,
             selection_color='#510A32',
+            hover_color="#801336",
             autofocus=True
         )
        
         self.place_of_death_dropdown = ft.Dropdown(
             label="Todesort",
             hint_text="Ort Auswählen",
+            hint_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
             label_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
             text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
             bgcolor="#510A32",
@@ -43,8 +45,9 @@ class dead(ft.UserControl):
                 overlay_color="#2D142C"
             ),
             on_click= self.add_clicked,
+            disabled= True,
             width=100,
-            height=50,
+            height=50
         )
 
         self.submit_button = ft.ElevatedButton(text='Abschicken',
@@ -55,24 +58,33 @@ class dead(ft.UserControl):
                     font_family= "Times New Roman",
                     color="#EE4540"
                 ),
-                overlay_color="#801336",
+                overlay_color="#801336"
             ),
             width=200,
             disabled=True
         )
 
         self.submit_button.on_click = self.submit
+        self.place_option.on_change = self.enable_add_button
 
 
     def add_clicked(self, e):
         self.place_of_death_dropdown.options.append(ft.dropdown.Option(self.place_option.value))
         self.place_of_death_dropdown.value = self.place_option.value
         self.place_option.value = ""
+        self.add_new_place.disabled = True
         self.update()
 
     def enable_submit_button(self, e):
          self.submit_button.disabled = False
          self.update()
+
+    def enable_add_button(self, e):
+        if self.place_option.value:
+            self.add_new_place.disabled = False
+        else:
+            self.add_new_place.disabled = True
+        self.update()
 
     def submit(self, e: ft.ControlEvent) -> None:
         print("Place of death:", self.place_of_death_dropdown.value)
@@ -91,7 +103,7 @@ class dead(ft.UserControl):
                     colors=["#2D142C","#510A32"]),
                 border_radius=10,
                 alignment=ft.alignment.center
-                ),
+            ),
             
             # ------ CONTENT ------
             ft.Column(
@@ -127,11 +139,23 @@ class dead(ft.UserControl):
                 content=ft.Row(
                     controls=[
                         ft.Container(
-                            content=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="#EE4540", on_click=lambda _: self.page.go("/role")),
+                            content=ft.IconButton(
+                                ft.Icons.ARROW_BACK,
+                                icon_color="#EE4540",
+                                hover_color= ft.Colors.with_opacity(0.1, "#C72C42"),
+                                highlight_color= ft.Colors.with_opacity(0.5, "#C72C42"),
+                                on_click=lambda _: self.page.go("/role")
+                            )
                         ),
 
                         ft.Container(
-                            content=ft.Text(value="Todesort", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
+                            content=ft.Text(
+                                value="Todesort",
+                                size= 30,
+                                font_family= "Times New Roman",
+                                weight= "bold",
+                                color="#EE4540"
+                            )
                         ),
 
                         # ------ SIDE MENU -------
@@ -145,7 +169,7 @@ class dead(ft.UserControl):
                                     ft.PopupMenuItem(text="Rollenübersicht", on_click=lambda _: self.page.go("/")),
                                     ft.PopupMenuItem(text="Spielregeln", on_click=lambda _: self.page.go("/"))
                                 ]
-                            ),
+                            )
                         )
                     ],
                     alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
