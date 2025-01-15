@@ -33,4 +33,4 @@ class Main(ft.UserControl):
 
 
 
-ft.app(target=Main, view=ft.AppView.WEB_BROWSER) # 
+ft.app(target=Main) # , view=ft.AppView.WEB_BROWSER
