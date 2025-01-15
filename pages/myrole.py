@@ -8,6 +8,53 @@ class role(ft.UserControl):
         self.role = "Unschuldig"
         self.description = "Du bist ein normaler Teilnehmer ohne besondere Fähigkeiten. Dein Ziel ist es, die Mörder zu entlarven und zu eliminieren."
 
+
+    def show_dialog(self, e):
+        dialog = ft.AlertDialog(
+            title=ft.Text("Bist du gestorben?", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
+            bgcolor="#801336",
+            actions=[
+                ft.TextButton(
+                    text="Ja",
+                    on_click=self.yes_close_dialog,
+                    style=ft.ButtonStyle(
+                        text_style=ft.TextStyle(
+                            font_family="Times New Roman",
+                            color="#EE4540",
+                            size=20
+                        ),
+                        overlay_color="#EE4540"
+                    )
+                ),
+                ft.TextButton(
+                    "Nein",
+                    on_click=self.no_close_dialog,
+                    style=ft.ButtonStyle(
+                        text_style=ft.TextStyle(
+                            font_family="Times New Roman",
+                            color="#EE4540",
+                            size=20
+                        ),
+                        overlay_color="#EE4540"
+                    )
+                )
+            ],
+            actions_alignment="end"
+        )
+        self.page.dialog = dialog
+        dialog.open = True
+        self.page.update()
+
+    def yes_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.go("/dead")
+        self.page.update()
+
+    def no_close_dialog(self, e):
+        self.page.dialog.open = False
+        self.page.update()
+
+
     def build(self):
         page = ft.Stack([
             # ------ BACKGROUND ------
@@ -31,25 +78,23 @@ class role(ft.UserControl):
                         ft.Container(),
                         ft.Container(
                             content=ft.Text(value=self.role, size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                            margin=ft.margin.only(left=50, right=50),
                             padding=10,
                         ),
 
                         ft.Container(
                             content=ft.Text(value=self.description, size= 15, font_family= "Times New Roman", weight= "bold", color="#C72C42"),
-                            margin=ft.margin.only(left=60, right=60),
                             padding=10,
                             alignment=ft.alignment.center,
                             bgcolor=ft.colors.TRANSPARENT,
                             border=ft.border.all(width=1, color="#C72C42"),
-                            width=250,
-                            height=110,
+                            width=300,
+                            height=150,
                             border_radius=10,
                         ),
 
                         ft.Container(
                             content=ft.Text(value="Notizen", size= 25, font_family= "Times New Roman", weight= "bold", color="#801336"),
-                            margin=ft.margin.only(left=50, right=50, top=25),
+                            margin=ft.margin.only(top=25),
                             padding=10,
                         ),
 
@@ -69,12 +114,11 @@ class role(ft.UserControl):
                                     color="#C72C42"
                                 )
                                     ),
-                            margin=ft.margin.only(left=60, right=60),
                             padding=ft.padding.only(left=10, right=10),
                             bgcolor=ft.colors.TRANSPARENT,
                             border=ft.border.all(width=1, color="#C72C42"),
-                            width=250,
-                            height=110,
+                            width=300,
+                            height=150,
                             border_radius=10,
                         ),                   
                     ],
@@ -124,26 +168,3 @@ class role(ft.UserControl):
             )
         ])
         return page
-    
-    def show_dialog(self, e):
-        dialog = ft.AlertDialog(
-            title=ft.Text("Bist du gestorben?", style=ft.TextStyle(font_family="Times New Roman", color="#EE4540",)),
-            bgcolor="#801336",
-            actions=[
-                ft.TextButton(text="Ja", on_click=self.yes_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540")),
-                ft.TextButton("Nein", on_click=self.no_close_dialog, style=ft.ButtonStyle(text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540", size=20), overlay_color="#EE4540"))
-            ],
-            actions_alignment="end"
-        )
-        self.page.dialog = dialog
-        dialog.open = True
-        self.page.update()
-
-    def yes_close_dialog(self, e):
-        self.page.dialog.open = False
-        self.page.go("/dead")
-        self.page.update()
-
-    def no_close_dialog(self, e):
-        self.page.dialog.open = False
-        self.page.update()

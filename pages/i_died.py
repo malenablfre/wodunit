@@ -6,23 +6,47 @@ class dead(ft.UserControl):
         self.page = page
         self.expand = True
 
-        self.place_of_death: ft.TextField = ft.TextField(
-            autofocus= True,
-            hint_text="Tippe den Ort...",
-            hint_style=ft.TextStyle(
-                font_family= "Times New Roman",
-                color="#C72C42"
-            ),
-            text_style=ft.TextStyle(
-                font_family= "Times New Roman",
-                color="#EE4540"
-            ),
-            text_align=ft.TextAlign.LEFT,
-            width=300,
+        self.place_option = ft.TextField(
+            hint_text="Neuer Ort",
+            hint_style= ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
+            text_style=ft.TextStyle(font_family= "Times New Roman", color="#EE4540"),
+            bgcolor="#510A32",
             border_color="#510A32",
+            cursor_color='#C72C42',
+            width=190,
+            height=50,
             border_radius=10,
-            cursor_color="#EE4540"
-            )
+            selection_color='#510A32',
+            autofocus=True
+        )
+       
+        self.place_of_death_dropdown = ft.Dropdown(
+            label="Todesort",
+            hint_text="Ort Auswählen",
+            label_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
+            text_style=ft.TextStyle(font_family="Times New Roman", color="#EE4540"),
+            bgcolor="#510A32",
+            border_color="#EE4540",
+            width=300,
+            height=50,
+            border_radius=10,
+            on_change= self.enable_submit_button,
+        )
+ 
+        self.add_new_place = ft.ElevatedButton(
+            text= "Hinzufügen",
+            style=ft.ButtonStyle(
+                shape=ft.RoundedRectangleBorder(radius=10),
+                color="#C72C42",
+                bgcolor="#510A32",
+                text_style=ft.TextStyle(size= 15, font_family= "Times New Roman", weight= "bold"),
+                overlay_color="#2D142C"
+            ),
+            on_click= self.add_clicked,
+            width=100,
+            height=50,
+        )
+
         self.submit_button = ft.ElevatedButton(text='Abschicken',
             style=ft.ButtonStyle(
                 color="#EE4540",
@@ -37,8 +61,23 @@ class dead(ft.UserControl):
             disabled=True
         )
 
-        self.place_of_death.on_change = self.validate
         self.submit_button.on_click = self.submit
+
+
+    def add_clicked(self, e):
+        self.place_of_death_dropdown.options.append(ft.dropdown.Option(self.place_option.value))
+        self.place_of_death_dropdown.value = self.place_option.value
+        self.place_option.value = ""
+        self.update()
+
+    def enable_submit_button(self, e):
+         self.submit_button.disabled = False
+         self.update()
+
+    def submit(self, e: ft.ControlEvent) -> None:
+        print("Place of death:", self.place_of_death_dropdown.value)
+        self.page.go("/role")
+
 
     def build(self):
         page = ft.Stack([
@@ -62,10 +101,21 @@ class dead(ft.UserControl):
                         content=ft.Text(value="Wo bist du gestorben?", size= 30, font_family= "Times New Roman", weight= "bold", color="#EE4540"),
                     ),
                     ft.Container(
-                        content=self.place_of_death
+                        content=self.place_of_death_dropdown,
+                        margin=ft.margin.only(top= 30)
                     ),
+
+                    ft.Row(
+                        controls=[
+                            self.place_option,
+                            self.add_new_place
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER
+                    ),
+                    
                     ft.Container(
-                        content=self.submit_button
+                        content=self.submit_button,
+                        margin=ft.margin.only(top= 10)
                     )
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
@@ -104,15 +154,3 @@ class dead(ft.UserControl):
             )
         ])
         return page
-    
-    def validate(self, e: ft.ControlEvent) -> None:
-        if self.place_of_death.value:
-            self.submit_button.disabled = False
-        else:
-            self.submit_button.disabled = True
-
-        self.update()
-
-    def submit(self, e: ft.ControlEvent) -> None:
-        print("Place of death:", self.place_of_death.value)
-        self.page.go("/role")
